@@ -1,7 +1,7 @@
 (*
    POMAP - Library for manipulating partially ordered maps
 
-   Copyright (C) 2001-2002  Markus Mottl  (OEFAI)
+   Copyright (C) 2001-2006  Markus Mottl  (OEFAI)
    email: markus.mottl@gmail.com
    WWW:   http://www.ocaml.info
 
@@ -162,7 +162,7 @@ module type POMAP = sig
       recent bindings are not passed to [f]. *)
 
   val iteri : (Ix.t -> 'a node -> unit) -> 'a pomap -> unit
-  (** [iteri f pm] same as [iter], but function [f] also receives
+  (** [iteri f pm] same as {!iter}, but function [f] also receives
       the index associated with the nodes. *)
 
   val map : ('a node -> 'b) -> 'a pomap -> 'b pomap
@@ -172,7 +172,7 @@ module type POMAP = sig
       is unspecified. *)
 
   val mapi : (Ix.t -> 'a node -> 'b) -> 'a pomap -> 'b pomap
-  (** [mapi f pm] same as [map], but function [f] also receives
+  (** [mapi f pm] same as {!map}, but function [f] also receives
       the index associated with the nodes. *)
 
   val fold : ('a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -181,7 +181,7 @@ module type POMAP = sig
       presented to [f] is unspecified. *)
 
   val foldi : (Ix.t -> 'a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [foldi f pm a] same as [fold], but function [f] also receives
+  (** [foldi f pm a] same as {!fold}, but function [f] also receives
       the index associated with the nodes. *)
 
   val topo_fold : ('a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -190,11 +190,11 @@ module type POMAP = sig
       topological order. Slower than [fold]. *)
 
   val topo_foldi : (Ix.t -> 'a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [topo_foldi f pm a] same as [topo_fold], but function [f]
+  (** [topo_foldi f pm a] same as {!topo_fold}, but function [f]
       also receives the index associated with the nodes. *)
 
   val topo_fold_ix : (Ix.t -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [topo_fold_ix f pm a] same as [topo_fold], but function [f]
+  (** [topo_fold_ix f pm a] same as {!topo_fold}, but function [f]
       only receives the index associated with the nodes. *)
 
   val rev_topo_fold : ('a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -203,11 +203,11 @@ module type POMAP = sig
       topological order. Slower than [fold]. *)
 
   val rev_topo_foldi : (Ix.t -> 'a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [rev_topo_foldi f pm a] same as [rev_topo_fold], but function [f]
+  (** [rev_topo_foldi f pm a] same as {!rev_topo_fold}, but function [f]
       also receives the index associated with the nodes. *)
 
   val rev_topo_fold_ix : (Ix.t -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [rev_topo_fold_ix f pm a] same as [rev_topo_fold], but function [f]
+  (** [rev_topo_fold_ix f pm a] same as {!rev_topo_fold}, but function [f]
       only receives the index associated with the nodes. *)
 
   val chain_fold : ('a node list -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -217,7 +217,7 @@ module type POMAP = sig
       complexity. *)
 
   val chain_foldi : ((Ix.t * 'a node) list -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [chain_foldi f pm a] same as [chain_fold], but function [f]
+  (** [chain_foldi f pm a] same as {!chain_fold}, but function [f]
       receives chains including the index associated with the nodes. *)
 
   val rev_chain_fold : ('a node list -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -228,7 +228,7 @@ module type POMAP = sig
 
   val rev_chain_foldi :
     ((Ix.t * 'a node) list -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [rev_chain_foldi f pm a] same as [rev_chain_fold], but function [f]
+  (** [rev_chain_foldi f pm a] same as {!rev_chain_fold}, but function [f]
       receives chains including the index associated with the nodes. *)
 
 
@@ -315,7 +315,7 @@ module type POMAP = sig
 
   val fold_split_eq_classes :
     ('a -> 'a -> bool) -> ('a -> 'a pomap -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
-  (** [fold_split_eq_classes eq f pm a] same as [fold_split_eq_classes],
+  (** [fold_split_eq_classes eq f pm a] same as {!fold_eq_classes},
       but the equivalence classes are split further so that no element
       of other classes would fit between its bottom and top elements.
       It is unspecified how non-conflicting elements are assigned to

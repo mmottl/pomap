@@ -1,3 +1,5 @@
+2006-07-26: Improved documentation.
+
 2004-07-01: Fixed is_empty-function.  It now uses the newly available
             Map.is_empty function.
 
