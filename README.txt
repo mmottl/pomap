@@ -1,11 +1,11 @@
       
                                         
-                          README: library --Pomap--
-                          *************************
-                  Copyright   (C)   2006  Markus Mottl (1)  
+                           README: library "Pomap"
+                           ***********************
+                  Copyright   (C)   2008  Markus Mottl (1)  
                   ==========================================
-                      Vienna, 						16th	January, 2006 
-                      =================================
+                          Vienna, November 29, 2008
+                          =========================
   
 
 1  Directory contents
@@ -18,22 +18,20 @@
  ---------------------------------------------------------------------------
  |     INSTALL       |  Short notes on compiling and installing the library|
  ---------------------------------------------------------------------------
- |     LICENSE       |  A copy of the --GNU LESSER GENERAL PUBLIC LICENSE--|
+ |     LICENSE       |   A copy of the "GNU LESSER GENERAL PUBLIC LICENSE" |
  ---------------------------------------------------------------------------
  |     Makefile      |                     Top Makefile                    |
  ---------------------------------------------------------------------------
  |  OcamlMakefile    |   Makefile for easy handling of compilation of not  |
  |                   |   so easy OCaml-projects. It generates dependencies |
  |                   |    of Ocaml-files automatically, is able to handle  |
- |                   |  --ocamllex---, --ocamlyacc---, IDL- and C-files and|
+ |                   |    "ocamllex"-, "ocamlyacc"-, IDL- and C-files and  |
  |                   |   generates native- or byte-code, as executable or  |
  |                   |     as library - with thread-support if you want!   |
  ---------------------------------------------------------------------------
- |      README       |                       This file                     |
+ |    README.txt     |                       This file                     |
  ---------------------------------------------------------------------------
- |     VERSION       |                    Current version                  |
- ---------------------------------------------------------------------------
- |  examples/hasse   |   --hasse-- depends on the dot-utility to visualize |
+ |  examples/hasse   |    "hasse" depends on the dot-utility to visualize  |
  |                   |               partial-order structures              |
  ---------------------------------------------------------------------------
  |       lib         |          Implementation of the pomap-library        |
@@ -41,30 +39,32 @@
                                         
 
 
-2  What is the --Pomap---library?
-*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
+2  What is the "Pomap"-library?
+*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*
 
    The Pomap-library implements an ADT that maintains maps of partially
 ordered elements. Whereas a total order allows you to say whether some element
 is lower, equal or greater than another one, partial orders also allow for a
---don-t know---case. More precisely, the axioms that hold for a partial order
+"don't know"-case. More precisely, the axioms that hold for a partial order
 relation are the following:
   
-           x <= x              (reflexivity) 
- x <= y /\ y <= x -> x = y    (antisymmetry) 
- x <= y /\ y <= z -> x <= z   (transitivity) 
+   
+           x <= x               (reflexivity) 
+ x <= y AND y <= x -> x = y    (antisymmetry) 
+ x <= y AND y <= z -> x <= z   (transitivity) 
   
   Partially ordered maps map values over which a partial order relation is
-defined to other values. Total orders, as they are usually used for --normal--
+defined to other values. Total orders, as they are usually used for "normal"
 maps, additionally require the following axiom:
   
- x <= y \/ y <= x   (totality) 
+   
+ x <= y OR y <= x   (totality) 
   
   Whereas a total order allows you to align elements in a linear way to
 exhibit this order relation (e.g. [1; 3; 7; 42;]), partial orders are usually
 represented by graphs (so-called Hasse-diagrams). Here is an example:
   
-  The elements of our example partial order structure are tuples of integers.
+   The elements of our example partial order structure are tuples of integers.
 We say that an element (a tuple) is larger than another one iff both of its
 integers are larger than the respective integers in the other tuple. Iff both
 integers are lower, than the tuple is lower, and iff the two tuples contain
@@ -72,13 +72,13 @@ equal elements, they are equal. If none of the above holds e.g. iff the first
 element of the first tuple is lower than the corresponding one of the second
 tuple and the second element of the first tuple is greater than its
 corresponding element of the second tuple, then we cannot say that either of
-the tuples is greater or lower, i.e. the order is --unknown-- (e.g. tuples
+the tuples is greater or lower, i.e. the order is "unknown" (e.g. tuples
 (42,1) and (3,7)).
   
-  A Hasse-graph of several such tuple-elements might be:
+   A Hasse-graph of several such tuple-elements might be:
   
-<<
-                                (89,73)   (93,21)
+   
+<<                              (89,73)   (93,21)
                                    |
                       (91,38)  _(57,42)
                          |    /    |
@@ -196,11 +196,11 @@ modern machines.
 ================================================
   
   All you need to provide is the function that computes the partial order
-relation between two elements. Take a look at the signature --PARTIAL_ORDER--
-in file --lib/pomap_intf.mli--:
+relation between two elements. Take a look at the signature "PARTIAL_ORDER" in
+file "lib/pomap_intf.mli":
   
-<<
-    module type PARTIAL_ORDER = sig
+   
+<<  module type PARTIAL_ORDER = sig
       type el
       type ord = Unknown | Lower | Equal | Greater
       val compare : el -> el -> ord
@@ -208,34 +208,34 @@ in file --lib/pomap_intf.mli--:
 >>
   
   You only have to specify the type of elements of the partially ordered
-structure and a comparison function that returns --Unknown-- if the elements
-are not comparable, --Lower-- if the first element is lower than the second,
---Equal-- when they are equal and --Greater-- if the first element is greater
-than the second one. You can find example implementations of such modules in
-directory --examples/hasse/po_examples.ml--.
+structure and a comparison function that returns "Unknown" if the elements are
+not comparable, "Lower" if the first element is lower than the second, "Equal"
+when they are equal and "Greater" if the first element is greater than the
+second one. You can find example implementations of such modules in directory
+"examples/hasse/po_examples.ml".
   
 
 4.2  Creating and using partially ordered maps
 ==============================================
   
-  Given the specification --MyPO-- of a partial order relation, we can now
+  Given the specification "MyPO" of a partial order relation, we can now
 create a map of partially ordered elements like this:
   
-<<
-    module MyPOMap = Pomap_impl.Make (MyPO)
+   
+<<  module MyPOMap = Pomap_impl.Make (MyPO)
 >>
   
-  The interface specification --POMAP-- in file --lib/pomap_intf.mli--
-documents in detail all the functions that can be applied to partially ordered
-maps and objects they maintain. The important aspect is that information is
-stored in nodes: you can access the key on which the partial order relation is
-defined, the associated data element, the set of indices of successors and the
-set of indices of predecessors. Fresh indices are generated automatically for
-new nodes.
+  The interface specification "POMAP" in file "lib/pomap_intf.mli" documents
+in detail all the functions that can be applied to partially ordered maps and
+objects they maintain. The important aspect is that information is stored in
+nodes: you can access the key on which the partial order relation is defined,
+the associated data element, the set of indices of successors and the set of
+indices of predecessors. Fresh indices are generated automatically for new
+nodes.
   Together with accessors to the indices of the bottommost and topmost nodes
 in the partially ordered map, this allows for easy navigation in the
 associated Hasse-diagram.
-  
+
 
 4.3  Rendering Hasse-diagrams using the dot-utility
 ===================================================
@@ -252,18 +252,21 @@ for elements. The use of these modules is demonstrated in the distributed
   
   In the case of bugs, feature requests and similar, you can contact me here:
   
-    markus.mottl@gmail.com
+     markus.mottl@gmail.com
   
-  Up-to-date information concerning this library should be available here:
+   Up-to-date information concerning this library should be available here:
   
-    http://www.ocaml.info/ocaml_sources
+     http://www.ocaml.info/ocaml_sources
   
-  Enjoy!!
+   Enjoy!!
   
---------------------------------------
-  
- 
- (1) http://www.ocaml.info/
+   
 -----------------------------------------------------------------------------
   
-               This document was translated from LaTeX by HeVeA (2).
+   This document was translated from LaTeX by HeVeA (2).
+--------------------------------------
+  
+  
+ (1) http://www.ocaml.info/
+ 
+ (2) http://hevea.inria.fr/index.html
