@@ -1,5 +1,5 @@
 name="pomap"
-version="2.9.7"
+version="2.9.10"
 description="POMAP - library for partially ordered maps"
 archive(byte)="pomap.cma"
 archive(native)="pomap.cmxa"
