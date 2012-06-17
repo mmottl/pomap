@@ -345,7 +345,3 @@ let rec max_elt = function
 let equal = (=)
 
 let compare = compare
-
-(*i*)
-let make l = List.fold_right add l empty
-(*i*)

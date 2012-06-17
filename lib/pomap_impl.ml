@@ -248,7 +248,7 @@ module Make (PO : PARTIAL_ORDER) = struct
     with Exit ->
       match !found_ref, !ix_node_ref with
       | true, Some (ix, node) -> ix, node
-      | false, Some (ix, node) -> find_ixset key nodes node.sucs
+      | false, Some (_, node) -> find_ixset key nodes node.sucs
       | _ -> assert false
 
   let find key pm = find_ixset key pm.nodes pm.bot
@@ -385,11 +385,11 @@ module Make (PO : PARTIAL_ORDER) = struct
 
   let diff pm1 pm2 = fold remove_node pm2 pm1
 
-  let rec filter p pm =
+  let filter p pm =
     let colli ix node acc = if p ix node then acc else remove_ix ix acc in
     Store.foldi colli pm.nodes pm
 
-  let rec partition p pm =
+  let partition p pm =
     let colli ix node (yes, no) =
       if p ix node then yes, remove_ix ix no else remove_ix ix yes, no in
     Store.foldi colli pm.nodes (pm, pm)
@@ -470,8 +470,8 @@ module Make (PO : PARTIAL_ORDER) = struct
   let cons_pm _ pm acc = pm :: acc
 
   let pm_cmp pm1 pm2 =
-    let { nodes = nodes1; bot = bot1 } = pm1 in
-    let { nodes = nodes2; bot = bot2 } = pm2 in
+    let { nodes = nodes1 } = pm1 in
+    let { nodes = nodes2 } = pm2 in
     let res = ref 0 in
     let cmp_key key1 ix2 =
       match PO.compare key1 (Store.find ix2 nodes2).key with

@@ -62,7 +62,7 @@ module MakePONList (Spec : sig val len : int val choices : int end) = struct
 
   let rand_el () =
     let l = ref [] in
-    for i = 1 to Spec.len do l := Random.int Spec.choices :: !l done;
+    for _i = 1 to Spec.len do l := Random.int Spec.choices :: !l done;
     !l
 
   let pretty_print ppf l =
@@ -95,7 +95,7 @@ module MakePOBList (Spec : sig val len : int end) = struct
 
   let rand_el () =
     let l = ref [] in
-    for i = 1 to Spec.len do l := Random.bool () :: !l done;
+    for _i = 1 to Spec.len do l := Random.bool () :: !l done;
     !l
 
   let int_of_bool b = if b then 1 else 0
