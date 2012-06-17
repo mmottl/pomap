@@ -6,6 +6,8 @@ SOURCES := \
   store_intf.mli store_impl.mli store_impl.ml \
   pomap_intf.mli pomap_impl.mli pomap_impl.ml
 
+OCAMLFLAGS := -w Aer -strict-sequence
+
 RESULT := pomap
 
 LIBINSTALL_FILES := \
