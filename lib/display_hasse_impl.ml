@@ -20,8 +20,6 @@
    Foundation, Inc., 59 Temple Place --- Suite 330, Boston, MA 02111-1307, USA.
 *)
 
-(* $Id: display_hasse_impl.ml,v 1.6 2006/01/17 00:39:09 mottl Exp $ *)
-
 open Display_hasse_intf
 open Pomap_intf
 open Format

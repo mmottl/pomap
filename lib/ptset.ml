@@ -14,8 +14,6 @@
  * (enclosed in the file LGPL).
  *)
 
-(* $Id: ptset.ml,v 1.2 2004/04/18 22:05:26 mottl Exp $ *)
-
 (*s Sets of integers implemented as Patricia trees, following Chris
     Okasaki and Andrew Gill's paper {\em Fast Mergeable Integer Maps}
     ({\tt\small http://www.cs.columbia.edu/\~{}cdo/papers.html\#ml98maps}).

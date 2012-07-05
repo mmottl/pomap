@@ -20,8 +20,6 @@
    Foundation, Inc., 59 Temple Place --- Suite 330, Boston, MA 02111-1307, USA.
 *)
 
-(* $Id: display_hasse_intf.mli,v 1.8 2006/01/17 00:39:09 mottl Exp $ *)
-
 (** Default specification for drawing with the DOT-utility. *)
 module type DEFAULT_SPEC = sig
   (** DOT-options (see "man dot") *)

@@ -20,8 +20,6 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 *)
 
-(* $Id: pomap_intf.mli,v 1.30 2006/01/17 00:39:09 mottl Exp $ *)
-
 (** Specification of a partial order relation *)
 module type PARTIAL_ORDER = sig
   type el (** Element type *)

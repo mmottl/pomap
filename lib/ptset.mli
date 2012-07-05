@@ -14,8 +14,6 @@
  * (enclosed in the file LGPL).
  *)
 
-(* $Id: ptset.mli,v 1.2 2004/04/18 22:05:26 mottl Exp $ *)
-
 (*s Sets of integers implemented as Patricia trees.  The following
     signature is exactly [Set.S with type elt = int], with the same
     specifications. This is a purely functional data-structure. The

@@ -20,8 +20,6 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 *)
 
-(* $Id: store_intf.mli,v 1.16 2006/01/17 00:39:09 mottl Exp $ *)
-
 (** Specification of indices used to index elements in stores *)
 module type INDEX = sig
   type t (** Type of indices *)
