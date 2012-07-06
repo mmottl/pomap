@@ -1,5 +1,11 @@
-name="pomap"
-version="2.9.10"
-description="POMAP - library for partially ordered maps"
-archive(byte)="pomap.cma"
-archive(native)="pomap.cmxa"
+# OASIS_START
+# DO NOT EDIT (digest: 7f5788ee27a0c338f57d7af6e234cd42)
+version = "6.2.6"
+description = "pomap - Partially Ordered Maps for OCaml"
+archive(byte) = "pomap.cma"
+archive(byte, plugin) = "pomap.cma"
+archive(native) = "pomap.cmxa"
+archive(native, plugin) = "pomap.cmxs"
+exists_if = "pomap.cma"
+# OASIS_STOP
+

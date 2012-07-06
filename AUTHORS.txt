@@ -1,0 +1,8 @@
+(* OASIS_START *)
+(* DO NOT EDIT (digest: df7f26cb41586380bad9a84f1164e975) *)
+Authors of pomap
+Markus Mottl <markus.mottl@gmail.com>
+
+Current maintainers of pomap
+Markus Mottl <markus.mottl@gmail.com>
+(* OASIS_STOP *)
