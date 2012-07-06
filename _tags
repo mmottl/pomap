@@ -19,3 +19,4 @@
 <examples/hasse/hasse.{native,byte}>: use_pomap
 <examples/hasse/*.ml{,i}>: use_pomap
 # OASIS_STOP
+<**/*.ml{,i}>: warn_A, warn_e, warn_r, annot
