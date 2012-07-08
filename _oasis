@@ -17,6 +17,8 @@ Homepage:         https://bitbucket.org/mmottl/pomap
 Plugins:          META (0.3), StdFiles (0.3), DevFiles (0.3)
 XStdFilesREADME:  false
 
+BuildTools:       ocamldoc, ocamlbuild
+
 Library pomap
   Path:           lib
   FindlibName:    pomap
@@ -27,7 +29,6 @@ Library pomap
                   Ptset,
                   Store_impl,
                   Store_intf
-  BuildTools:     ocamlbuild
 
 
 # Examples
@@ -38,7 +39,6 @@ Executable cloc
   BuildDepends:   pomap
   Install:        false
   CompiledObject: best
-  BuildTools:     ocamlbuild
 
 #
 
@@ -46,7 +46,6 @@ Document API
   Title:                API reference for PCRE-OCaml
   Type:                 OCamlbuild (0.3)
   InstallDir:           $docdir/api
-  BuildTools:           ocamldoc, ocamlbuild
   XOCamlbuildPath:      .
   XOCamlbuildLibraries: pomap
 
