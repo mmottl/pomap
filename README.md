@@ -180,13 +180,15 @@ Hasse-diagram.
 ### Rendering Hasse-diagrams using the dot-utility
 
 The Pomap-library also contains modules that allow you to easily render
-Hasse-diagrams given some partially ordered map and pretty-printing functions
-for elements.  The use of these modules is demonstrated in the distributed
-`hasse`-example.
+Hasse-diagrams given some partially ordered map and pretty-printing
+functions for elements.  This requires installation of the
+[Graphviz](http://www.graphviz.org) package, which supplies the needed
+`dot`-utility.  The use of these modules is demonstrated in the distributed
+`hasse`-example, which comes with its own README.
 
 ---------------------------------------------------------------------------
 
-Contact information and contributing
+Contact Information and Contributing
 ------------------------------------
 
 In the case of bugs, feature requests, contributions and similar, you can
