@@ -25,7 +25,7 @@ open Po_examples
 
 (* Parse arguments *)
 let n, len, choices =
-  let n_ref = ref 100
+  let n_ref = ref 20
   and l_ref = ref 2
   and c_ref = ref 100
   and help_ref = ref false in
@@ -41,7 +41,7 @@ let n, len, choices =
   and l =
    "-l",
    Arg.Int ((:=) l_ref),
-   (sprintf "\t\tlength of list elements (default: %d)" !l_ref)
+   (sprintf "\t\tlength of element lists (default: %d)" !l_ref)
 
   and c =
    "-c",
@@ -75,6 +75,8 @@ module DisplaySpec = struct
 
   let pp_node_attr ppf node =
     fprintf ppf "label = \"%a\"" PO.pretty_print (POMap.get_key node)
+
+  let rotation = 0.
 end
 
 module DisplayHasse = Display_hasse_impl.Make (POMap) (DisplaySpec)
