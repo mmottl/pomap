@@ -33,9 +33,14 @@ Library pomap
 
 # Examples
 
+Flag examples
+  Description:    Build examples
+  Default:        true
+
 Executable cloc
   Path:           examples/hasse
   MainIs:         hasse.ml
+  Build$:         flag(examples)
   BuildDepends:   pomap
   Install:        false
   CompiledObject: best
