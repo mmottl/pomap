@@ -1,3 +1,11 @@
+2012-07-15:  New major release version 3.0.0:
+
+               * Upgraded to OCaml 4.00
+               * Switched to Oasis for packaging
+               * Switched to OCamlBuild for the build process
+               * Rewrote README in Markdown
+               * Added stricter compilation flags
+
 2006-11-22: Updated OCamlMakefile.
 
 2006-07-26: Improved documentation.
