@@ -139,6 +139,12 @@ with native code on modern machines.
 Usage
 -----
 
+### API-documentation
+
+Please refer to the API-documentation as programming reference, which
+is built during installation with `make doc`.  It can also be found
+[online](http://mmottl.bitbucket.org/projects/pomap/api/).
+
 ### Specification of the partial order relation
 
 All you need to provide is the function that computes the partial order
