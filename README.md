@@ -62,7 +62,7 @@ element is above the smaller element.  Hasse-diagrams do not display the
 order if it is implied by transitivity.  E.g. there is no separate line for
 the elements (89,73) and (25,42).  If elements cannot be reached on lines
 without reversing direction, then they cannot be compared.  E.g. the pair
-(93,21) is uncomparable to all others whereas (44,26) cannot be compared to
+(93,21) is incomparable to all others whereas (44,26) cannot be compared to
 this latter pair and to (25,42) only.
 
 This library internally represents relations between known elements similar
@@ -81,10 +81,9 @@ of products.  For marketing purposes it would be extremely useful to know
 product baskets that people frequently buy.  This is equivalent to asking
 where in a Hasse-diagram such baskets might be placed.
 
-Or imagine you develope a medical system that automatically associates
-different mixes of medication with illnesses they effectively treat to
-support doctors in deciding on a therapy.  This can all be addressed with
-concept lattices.
+Or imagine you develop a medical system that automatically associates different
+mixes of medication with illnesses they effectively treat to support doctors
+in deciding on a therapy.  This can all be addressed with concept lattices.
 
 #### Software engineering
 
@@ -99,13 +98,13 @@ set of features in a separate module to reduce overall complexity.
 #### Databases
 
 Partial order structures represented by Hasse-diagrams can be used to
-optimize database queries on multi-value attributes by providing better ways
-of indexing.
+optimize database queries on multi-valued attributes by providing better
+ways of indexing.
 
 #### General problem-solving
 
 For general problem-solving we often need at least to know whether some
-solution is better, equal to, worse or uncomparable to another.  Given a
+solution is better, equal to, worse or incomparable to another.  Given a
 large number of known solutions, the partial order structure containing the
 elements can be used to draw conclusions about e.g. whether their particular
 form (syntax) implies anything about their position in the partial order
@@ -115,10 +114,10 @@ form (syntax) implies anything about their position in the partial order
 
 #### Referential transparency
 
-The currently implemented functions all handle the datastructure in a purely
-functional way.  This allows you to hold several versions of a datastructure
+The currently implemented functions all handle the data structure in a purely
+functional way.  This allows you to hold several versions of a data structure
 in memory while benefiting from structure sharing.  This makes backing out
-changes to the datastructure efficient and straightforward and also allows
+changes to the data structure efficient and straightforward and also allows
 you to use the library safely in a multi-threaded environment.
 
 #### Incremental updates
