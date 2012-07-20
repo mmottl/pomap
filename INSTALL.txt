@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 3502bc54f5865e4fb36f270d48da1874) *)
+(* DO NOT EDIT (digest: 105ebdac0afc4b952bc784ef5213de99) *)
 This is the INSTALL file for the pomap distribution.
 
 This package uses OASIS to generate its build system. See section OASIS for
@@ -10,7 +10,7 @@ Dependencies
 
 In order to compile this package, you will need:
 * ocaml (>= 3.12) for all, doc API
-* findlib (>= 1.3.2)
+* findlib (>= 1.3.1)
 
 Installing
 ==========
