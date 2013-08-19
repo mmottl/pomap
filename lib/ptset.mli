@@ -70,6 +70,8 @@ val partition : (elt -> bool) -> t -> t * t
 
 val split : elt -> t -> t * bool * t
 
+val find : elt -> t -> elt
+
 (*s Warning: [min_elt] and [max_elt] are linear w.r.t. the size of the
     set. In other words, [min_elt t] is barely more efficient than [fold
     min t (choose t)]. *)

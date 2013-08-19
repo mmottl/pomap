@@ -1,3 +1,7 @@
+2013-08-19:  Fixed API compatibility problem wrt. OCaml 4.01.
+
+             Thanks to Alexis Ballier for the report!
+
 2012-07-20:  Downgraded findlib version requirement to support the Debian
              testing branch.
 

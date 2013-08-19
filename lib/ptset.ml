@@ -336,6 +336,8 @@ let rec max_elt = function
   | Leaf k -> k
   | Branch (_,_,s,t) -> max (max_elt s) (max_elt t)
 
+let find e t = if mem e t then e else raise Not_found
+
 (*s Another nice property of Patricia trees is to be independent of the
     order of insertion. As a consequence, two Patricia trees have the
     same elements if and only if they are structurally equal. *)
