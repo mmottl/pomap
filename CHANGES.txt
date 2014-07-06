@@ -1,3 +1,5 @@
+2014-07-06:  Moved to GitHub.
+
 2013-08-19:  Fixed API compatibility problem wrt. OCaml 4.01.
 
              Thanks to Alexis Ballier for the report!
