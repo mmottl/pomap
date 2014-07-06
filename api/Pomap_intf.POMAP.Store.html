@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="Pomap_intf.POMAP.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Display_hasse_impl" rel="Chapter" href="Display_hasse_impl.html">
+<link title="Display_hasse_intf" rel="Chapter" href="Display_hasse_intf.html">
+<link title="Pomap_impl" rel="Chapter" href="Pomap_impl.html">
+<link title="Pomap_intf" rel="Chapter" href="Pomap_intf.html">
+<link title="Ptset" rel="Chapter" href="Ptset.html">
+<link title="Store_impl" rel="Chapter" href="Store_impl.html">
+<link title="Store_intf" rel="Chapter" href="Store_intf.html"><title>Pomap_intf.POMAP.Store</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Pomap_intf.POMAP.html" title="Pomap_intf.POMAP">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Pomap_intf.POMAP.Store.html">Pomap_intf.POMAP.Store</a></h1>
+
+<pre><span class="keyword">module</span> Store: <code class="type"><a href="Store_intf.STORE.html">Store_intf.STORE</a></code><code class="type"> </code></pre><div class="info module top">
+Store module used to store nodes of the partially ordered map.<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Store_intf.STORE.Ix.html">Ix</a>: <code class="type"><a href="Store_intf.INDEX.html">Store_intf.INDEX</a></code><code class="type"> </code></pre><div class="info">
+Index module used to index elements in the store
+</div>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">+'a</code> t</span> </pre>
+<div class="info ">
+Type of stores<br>
+</div>
+
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+The empty store<br>
+</div>
+
+<pre><span id="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+<code class="code">is_empty s</code><br>
+<b>Returns</b> <code class="code">true</code> if <code class="code">s</code> is empty, <code class="code">false</code> otherwise.<br>
+</div>
+
+<pre><span id="VALcardinal"><span class="keyword">val</span> cardinal</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<code class="code">cardinal s</code><br>
+<b>Returns</b> the number of elements in <code class="code">s</code>.<br>
+</div>
+
+<pre><span id="VALnext_ix"><span class="keyword">val</span> next_ix</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> Ix.t</code></pre><div class="info ">
+<code class="code">next_ix s</code><br>
+<b>Returns</b> the next index the store <code class="code">s</code> will use to index
+      a new element.<br>
+</div>
+
+<pre><span id="VALsingleton"><span class="keyword">val</span> singleton</span> : <code class="type">'a -> Ix.t * 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">singleton el</code><br>
+<b>Returns</b> the tuple <code class="code">(ix, store)</code>, where <code class="code">ix</code>
+      is the index under which the only element <code class="code">el</code> was stored, and
+      <code class="code">store</code> is the store containing <code class="code">el</code>.<br>
+</div>
+
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">'a -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> Ix.t * 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">add el s</code><br>
+<b>Returns</b> the tuple <code class="code">(new_ix, new_store)</code>, where <code class="code">new_ix</code>
+     is the index under which the new element <code class="code">el</code> was stored, and
+     <code class="code">new_store</code> is the new store containing <code class="code">el</code>.<br>
+</div>
+
+<pre><span id="VALfind"><span class="keyword">val</span> find</span> : <code class="type">Ix.t -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a</code></pre><div class="info ">
+<code class="code">find ix s</code><br>
+<b>Raises</b> <code>Not_found</code> if index <code class="code">ix</code> not bound.<br>
+<b>Returns</b> the element stored under index <code class="code">ix</code>.<br>
+</div>
+
+<pre><span id="VALupdate"><span class="keyword">val</span> update</span> : <code class="type">Ix.t -> 'a -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">update ix el s</code> rebinds index <code class="code">ix</code> in store <code class="code">s</code> to point to
+      <code class="code">el</code>, and returns the resulting store. The previous binding
+      disappears. New indices resulting from further adds are guaranteed
+      to have higher indices.<br>
+<b>Raises</b> <code>Not_found</code> if index <code class="code">ix</code> not bound.<br>
+</div>
+
+<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">Ix.t -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">remove ix s</code> removes the binding of index <code class="code">ix</code> of store <code class="code">s</code>,
+      and returns the resulting store.<br>
+</div>
+
+<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -> unit) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<code class="code">iter f s</code> applies <code class="code">f</code> to all stored elements in store <code class="code">s</code>. The
+      order in which elements are passed to <code class="code">f</code> is unspecified.<br>
+</div>
+
+<pre><span id="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">(Ix.t -> 'a -> unit) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<code class="code">iter f s</code> applies <code class="code">f</code> to all indexes and their related elements
+      in store <code class="code">s</code>. The order in which elements are passed to <code class="code">f</code> is
+      unspecified.<br>
+</div>
+
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a -> 'b) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'b <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">map f s</code><br>
+<b>Returns</b> a store with all elements in <code class="code">s</code> mapped from
+      their original value to the codomain of <code class="code">f</code>. Only the elements
+      are passed to <code class="code">f</code>. The order in which elements are passed to <code class="code">f</code>
+      is unspecified.<br>
+</div>
+
+<pre><span id="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">(Ix.t -> 'a -> 'b) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'b <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">mapi f s</code> same as <code class="code">map</code>, but function <code class="code">f</code> also receives the index
+      associated with the elements.<br>
+</div>
+
+<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">('a -> 'b -> 'b) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'b -> 'b</code></pre><div class="info ">
+<code class="code">fold f s a</code> computes <code class="code">(f eN ... (f e1 a) ...)</code>, where <code class="code">e1 ... eN</code>
+      are the elements of all bindings in store <code class="code">s</code>. The order in which
+      the bindings are presented to <code class="code">f</code> is unspecified.<br>
+</div>
+
+<pre><span id="VALfoldi"><span class="keyword">val</span> foldi</span> : <code class="type">(Ix.t -> 'a -> 'b -> 'b) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'b -> 'b</code></pre><div class="info ">
+<code class="code">foldi f s a</code> same as <code class="code">fold</code>, but function <code class="code">f</code> also receives
+      the index associated with the elements.<br>
+</div>
+
+<pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> (Ix.t * 'a) list</code></pre><div class="info ">
+<code class="code">to_list s</code> converts <code class="code">s</code> to an association list of indices and
+      elements.<br>
+</div>
+
+<pre><span id="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> Ix.t * 'a</code></pre><div class="info ">
+<code class="code">choose s</code><br>
+<b>Raises</b> <code>Not_found</code> if <code class="code">s</code> is empty.<br>
+<b>Returns</b> a tuple <code class="code">(ix, x)</code>, where <code class="code">ix</code> is the index
+      of some unspecified value <code class="code">x</code> in store <code class="code">s</code>.<br>
+</div>
+
+<pre><span id="VALfilter"><span class="keyword">val</span> filter</span> : <code class="type">(Ix.t -> 'a -> bool) -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">filter p s</code><br>
+<b>Returns</b> the store of all elements in <code class="code">s</code> that
+      satisfy <code class="code">p</code>.<br>
+</div>
+
+<pre><span id="VALpartition"><span class="keyword">val</span> partition</span> : <code class="type">(Ix.t -> 'a -> bool) -><br>       'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a <a href="Store_intf.STORE.html#TYPEt">t</a> * 'a <a href="Store_intf.STORE.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">partition p s</code><br>
+<b>Returns</b> a pair of stores <code class="code">(s1, s2)</code>, where
+      <code class="code">s1</code> is the store of all the elements of <code class="code">s</code> that satisfy the
+      predicate <code class="code">p</code>, and <code class="code">s2</code> is the store of all the elements of <code class="code">s</code>
+      that do not satisfy <code class="code">p</code>.<br>
+</div>
+
+<pre><span id="VALeq_classes"><span class="keyword">val</span> eq_classes</span> : <code class="type">('a -> 'a -> bool) -><br>       'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> ('a * 'a <a href="Store_intf.STORE.html#TYPEt">t</a>) list</code></pre><div class="info ">
+<code class="code">eq_classes eq s</code><br>
+<b>Returns</b> a list of tuples <code class="code">(el, ec)</code>, where
+      <code class="code">el</code> is the only kind of element as identified by the equivalence
+      relation <code class="code">eq</code> stored in the equivalence class (store) <code class="code">ec</code> under
+      each index. Every such equivalence class is unique and maximal
+      with respect to <code class="code">s</code>, and the original indices of the elements are
+      preserved in each class.<br>
+</div>
+
+<pre><span id="VALget_ix_map"><span class="keyword">val</span> get_ix_map</span> : <code class="type">'a <a href="Store_intf.STORE.html#TYPEt">t</a> -> 'a Ix.Map.t</code></pre><div class="info ">
+<code class="code">get_ix_map s</code><br>
+<b>Returns</b> a map of all indices mapped to their
+      respective elements in store <code class="code">s</code>.<br>
+</div>
+</body></html>

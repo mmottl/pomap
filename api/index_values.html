@@ -1,0 +1,623 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Display_hasse_impl" rel="Chapter" href="Display_hasse_impl.html">
+<link title="Display_hasse_intf" rel="Chapter" href="Display_hasse_intf.html">
+<link title="Pomap_impl" rel="Chapter" href="Pomap_impl.html">
+<link title="Pomap_intf" rel="Chapter" href="Pomap_intf.html">
+<link title="Ptset" rel="Chapter" href="Ptset.html">
+<link title="Store_impl" rel="Chapter" href="Store_impl.html">
+<link title="Store_intf" rel="Chapter" href="Store_intf.html"><title>Index of values</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of values</h1>
+<table>
+<tr><td align="left"><br>A</td></tr>
+<tr><td><a href="Ptset.html#VALadd">add</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALadd">add</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">add el s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALadd">add</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">add k el pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALadd_find">add_find</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">add_find k el pm</code> similar to <code class="code">add</code>, but if the binding did already
+      exist, then <code class="code">Found (ix, node)</code> will be returned to indicate the
+      index and node under which key <code class="code">k</code> is bound.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALadd_fun">add_fun</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">add_fun k el f pm</code> similar to <code class="code">add</code>, but if the binding already
+      existed, then function <code class="code">f</code> will be applied to the previously bound
+      data.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALadd_node">add_node</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">add_node node pm</code>
+</div>
+</td></tr>
+<tr><td align="left"><br>B</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALbot_attr">bot_attr</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td><div class="info">
+Node attribute string for bottom nodes
+</div>
+</td></tr>
+<tr><td align="left"><br>C</td></tr>
+<tr><td><a href="Ptset.html#VALcardinal">cardinal</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALcardinal">cardinal</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">cardinal s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALcardinal">cardinal</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">cardinal pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALcenter">center</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALchain_fold">chain_fold</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">chain_fold f pm a</code> computes <code class="code">(f cN ... (f c1 a) ...)</code>, where
+      <code class="code">c1 ... cN</code> are the ascending chaines of nodes in map <code class="code">pm</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALchain_foldi">chain_foldi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">chain_foldi f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALchain_fold"><code class="code">Pomap_intf.POMAP.chain_fold</code></a>, but function <code class="code">f</code>
+      receives chains including the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALchoose">choose</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALchoose">choose</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">choose s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALchoose">choose</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">choose pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALcompare">compare</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.PARTIAL_ORDER.html#VALcompare">compare</a> [<a href="Pomap_intf.PARTIAL_ORDER.html">Pomap_intf.PARTIAL_ORDER</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALcreate_node">create_node</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">create_node k el sucs prds</code>
+</div>
+</td></tr>
+<tr><td align="left"><br>D</td></tr>
+<tr><td><a href="Ptset.html#VALdiff">diff</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALdiff">diff</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">diff pm1 pm2</code> removes all elements of <code class="code">pm2</code> from <code class="code">pm1</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>E</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALedge_attr">edge_attr</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td><div class="info">
+Edge attribute string, e.g.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALelements">elements</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALempty">empty</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALempty">empty</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+The empty store
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALempty">empty</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+The empty partially ordered map.
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALeq_classes">eq_classes</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">eq_classes eq s</code>
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALequal">equal</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALexists">exists</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>F</td></tr>
+<tr><td><a href="Ptset.html#VALfilter">filter</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALfilter">filter</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">filter p s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfilter">filter</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">filter p pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALfind">find</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALfind">find</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">find ix s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfind">find</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">find k pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfind_ix">find_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">find_ix ix pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALfold">fold</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALfold">fold</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">fold f s a</code> computes <code class="code">(f eN ... (f e1 a) ...)</code>, where <code class="code">e1 ... eN</code>
+      are the elements of all bindings in store <code class="code">s</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfold">fold</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">fold f pm a</code> computes <code class="code">(f nN ... (f n1 a) ...)</code>, where <code class="code">n1 ... nN</code>
+      are the nodes in map <code class="code">pm</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfold_eq_classes">fold_eq_classes</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">fold_eq_classes eq f pm a</code> factorizes <code class="code">pm</code> into maximal
+      equivalence classes of partial orders: all bindings in each
+      class have equivalent data elements as identified by <code class="code">eq</code> and
+      are connected in the original Hasse-diagram.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfold_split_eq_classes">fold_split_eq_classes</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">fold_split_eq_classes eq f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALfold_eq_classes"><code class="code">Pomap_intf.POMAP.fold_eq_classes</code></a>,
+      but the equivalence classes are split further so that no element
+      of other classes would fit between its bottom and top elements.
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALfoldi">foldi</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">foldi f s a</code> same as <code class="code">fold</code>, but function <code class="code">f</code> also receives
+      the index associated with the elements.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALfoldi">foldi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">foldi f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALfold"><code class="code">Pomap_intf.POMAP.fold</code></a>, but function <code class="code">f</code> also receives
+      the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALfor_all">for_all</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Display_hasse_intf.DISPLAY_HASSE.html#VALfprintf">fprintf</a> [<a href="Display_hasse_intf.DISPLAY_HASSE.html">Display_hasse_intf.DISPLAY_HASSE</a>]</td>
+<td><div class="info">
+<code class="code">fprintf ppf pm</code> prints partially ordered map <code class="code">pm</code> to the
+        pretty-printer <code class="code">ppf</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>G</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_bot">get_bot</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_bot pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_el">get_el</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_el n</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALget_ix_map">get_ix_map</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">get_ix_map s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_key">get_key</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_key n</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_nodes">get_nodes</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_nodes pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_prds">get_prds</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_prds n</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_sucs">get_sucs</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_sucs n</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALget_top">get_top</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">get_top pm</code>
+</div>
+</td></tr>
+<tr><td align="left"><br>I</td></tr>
+<tr><td><a href="Store_intf.INDEX.html#VALint_of_ix">int_of_ix</a> [<a href="Store_intf.INDEX.html">Store_intf.INDEX</a>]</td>
+<td><div class="info">
+<code class="code">int_of_ix ix</code> converts index <code class="code">ix</code> to an integer.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALinter">inter</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALinter">inter</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">inter pm1 pm2</code> intersects <code class="code">pm1</code> and <code class="code">pm2</code>, preserving the
+      bindings of <code class="code">pm1</code>.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALintersect">intersect</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALis_empty">is_empty</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALis_empty">is_empty</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">is_empty s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALis_empty">is_empty</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">is_empty pm</code> tests whether partially ordered map <code class="code">pm</code> is empty.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALiter">iter</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALiter">iter</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">iter f s</code> applies <code class="code">f</code> to all stored elements in store <code class="code">s</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALiter">iter</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">iter f pm</code> applies <code class="code">f</code> to all bound nodes in map <code class="code">pm</code>.
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALiteri">iteri</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">iter f s</code> applies <code class="code">f</code> to all indexes and their related elements
+      in store <code class="code">s</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALiteri">iteri</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">iteri f pm</code> same as <a href="Pomap_intf.POMAP.html#VALiter"><code class="code">Pomap_intf.POMAP.iter</code></a>, but function <code class="code">f</code> also receives
+      the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td align="left"><br>L</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALlabel">label</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>M</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALmap">map</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">map f s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALmap">map</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">map f pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALmapi">mapi</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">mapi f s</code> same as <code class="code">map</code>, but function <code class="code">f</code> also receives the index
+      associated with the elements.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALmapi">mapi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">mapi f pm</code> same as <a href="Pomap_intf.POMAP.html#VALmap"><code class="code">Pomap_intf.POMAP.map</code></a>, but function <code class="code">f</code> also receives
+      the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALmax_elt">max_elt</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALmem">mem</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALmem">mem</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">mem k pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALmem_ix">mem_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">mem el pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALmin_elt">min_elt</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>N</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALname">name</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.INDEX.html#VALnext">next</a> [<a href="Store_intf.INDEX.html">Store_intf.INDEX</a>]</td>
+<td><div class="info">
+<code class="code">next gen</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.INDEX.html#VALnext_ix">next_ix</a> [<a href="Store_intf.INDEX.html">Store_intf.INDEX</a>]</td>
+<td><div class="info">
+<code class="code">next_ix gen</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALnext_ix">next_ix</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">next_ix s</code>
+</div>
+</td></tr>
+<tr><td align="left"><br>P</td></tr>
+<tr><td><a href="Ptset.html#VALpartition">partition</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALpartition">partition</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">partition p s</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALpartition">partition</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">partition p pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.SPEC.html#VALpp_node_attr">pp_node_attr</a> [<a href="Display_hasse_intf.SPEC.html">Display_hasse_intf.SPEC</a>]</td>
+<td><div class="info">
+<code class="code">pp_node_attr ppf node</code> prints attributes of <code class="code">node</code> to the
+      pretty-printer <code class="code">ppf</code>.
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_impl.DefaultSpec.html#VALpp_node_attr">pp_node_attr</a> [<a href="Display_hasse_impl.DefaultSpec.html">Display_hasse_impl.DefaultSpec</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALpreorder_eq_classes">preorder_eq_classes</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">preorder_eq_classes eq pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DISPLAY_HASSE.html#VALprintf">printf</a> [<a href="Display_hasse_intf.DISPLAY_HASSE.html">Display_hasse_intf.DISPLAY_HASSE</a>]</td>
+<td><div class="info">
+<code class="code">printf ppf pm</code> prints partially ordered map <code class="code">pm</code> to <code class="code">stdout</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>R</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALratio">ratio</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALremove">remove</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALremove">remove</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">remove ix s</code> removes the binding of index <code class="code">ix</code> of store <code class="code">s</code>,
+      and returns the resulting store.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALremove">remove</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">remove k pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALremove_eq_prds">remove_eq_prds</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">remove_eq_prds eq pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.INDEX.html#VALremove_ix">remove_ix</a> [<a href="Store_intf.INDEX.html">Store_intf.INDEX</a>]</td>
+<td><div class="info">
+<code class="code">remove_ix gen ix</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALremove_ix">remove_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">remove_ix ix pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALremove_node">remove_node</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">remove_node node pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALrev_chain_fold">rev_chain_fold</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">rev_chain_fold f pm a</code> computes <code class="code">(f cN ... (f c1 a) ...)</code>, where
+      <code class="code">c1 ... cN</code> are the descending chaines of nodes in map <code class="code">pm</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALrev_chain_foldi">rev_chain_foldi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">rev_chain_foldi f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALrev_chain_fold"><code class="code">Pomap_intf.POMAP.rev_chain_fold</code></a>, but function <code class="code">f</code>
+      receives chains including the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALrev_topo_fold">rev_topo_fold</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">rev_topo_fold f pm a</code> computes <code class="code">(f nN ... (f n1 a) ...)</code>, where
+      <code class="code">n1 ... nN</code> are the nodes in map <code class="code">pm</code> sorted in descending
+      topological order.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALrev_topo_fold_ix">rev_topo_fold_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">rev_topo_fold_ix f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALrev_topo_fold"><code class="code">Pomap_intf.POMAP.rev_topo_fold</code></a>, but function <code class="code">f</code>
+      only receives the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALrev_topo_foldi">rev_topo_foldi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">rev_topo_foldi f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALrev_topo_fold"><code class="code">Pomap_intf.POMAP.rev_topo_fold</code></a>, but function <code class="code">f</code>
+      also receives the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALrotation">rotation</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>S</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALset_el">set_el</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">set_el n el</code> sets the data element of node <code class="code">n</code> to <code class="code">el</code> and
+      returns new node.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALset_key">set_key</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">set_key n k</code> sets the key of node <code class="code">n</code> to <code class="code">k</code> and returns new node.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALset_prds">set_prds</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">set_prds n prds</code> set the predecessors of node <code class="code">n</code> to <code class="code">prds</code>
+      and returns new node.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALset_sucs">set_sucs</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">set_sucs n sucs</code> set the successors of node <code class="code">n</code> to <code class="code">sucs</code> and
+      returns new node.
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALsingleton">singleton</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALsingleton">singleton</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">singleton el</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALsingleton">singleton</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">singleton k el</code>
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALsize_x">size_x</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALsize_y">size_y</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td></td></tr>
+<tr><td><a href="Ptset.html#VALsplit">split</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Store_intf.INDEX.html#VALstart">start</a> [<a href="Store_intf.INDEX.html">Store_intf.INDEX</a>]</td>
+<td><div class="info">
+The start state of the index generator
+</div>
+</td></tr>
+<tr><td><a href="Ptset.html#VALsubset">subset</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>T</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtake">take</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">take k pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtake_ix">take_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">take_ix ix pm</code>
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALto_list">to_list</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">to_list s</code> converts <code class="code">s</code> to an association list of indices and
+      elements.
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALtop_attr">top_attr</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td><div class="info">
+Node attribute string for top nodes, e.g.
+</div>
+</td></tr>
+<tr><td><a href="Display_hasse_intf.DEFAULT_SPEC.html#VALtop_bot_attr">top_bot_attr</a> [<a href="Display_hasse_intf.DEFAULT_SPEC.html">Display_hasse_intf.DEFAULT_SPEC</a>]</td>
+<td><div class="info">
+Node attribute string for top/bottom nodes
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtopo_fold">topo_fold</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">topo_fold f pm a</code> computes <code class="code">(f nN ... (f n1 a) ...)</code>, where
+      <code class="code">n1 ... nN</code> are the nodes in map <code class="code">pm</code> sorted in ascending
+      topological order.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtopo_fold_ix">topo_fold_ix</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">topo_fold_ix f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALtopo_fold"><code class="code">Pomap_intf.POMAP.topo_fold</code></a>, but function <code class="code">f</code>
+      only receives the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtopo_fold_reduced">topo_fold_reduced</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">topo_fold_reduced eq f pm a</code> computes <code class="code">(f nN ... (f n1 a) ...)</code>,
+      where <code class="code">n1 ... nN</code> are those nodes in map <code class="code">pm</code> sorted in ascending
+      topological order, whose data element is equivalent as defined by
+      <code class="code">eq</code> to the one of lower elements if there are no intermediate
+      elements that violate this equivalence.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALtopo_foldi">topo_foldi</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">topo_foldi f pm a</code> same as <a href="Pomap_intf.POMAP.html#VALtopo_fold"><code class="code">Pomap_intf.POMAP.topo_fold</code></a>, but function <code class="code">f</code>
+      also receives the index associated with the nodes.
+</div>
+</td></tr>
+<tr><td align="left"><br>U</td></tr>
+<tr><td><a href="Ptset.html#VALunion">union</a> [<a href="Ptset.html">Ptset</a>]</td>
+<td></td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALunion">union</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">union pm1 pm2</code> merges <code class="code">pm1</code> and <code class="code">pm2</code>, preserving the
+      bindings of <code class="code">pm1</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALunsafe_set_bot">unsafe_set_bot</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">unsafe_set_bot pm set</code> updates the index of bottom nodes
+      in map <code class="code">pm</code> with <code class="code">set</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALunsafe_set_nodes">unsafe_set_nodes</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">unsafe_set_nodes pm s</code> updates the node store associated with map
+      <code class="code">pm</code> with <code class="code">s</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALunsafe_set_top">unsafe_set_top</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">unsafe_set_top pm set</code> updates the index of top nodes in
+      map <code class="code">pm</code> with <code class="code">set</code>.
+</div>
+</td></tr>
+<tr><td><a href="Pomap_intf.POMAP.html#VALunsafe_update">unsafe_update</a> [<a href="Pomap_intf.POMAP.html">Pomap_intf.POMAP</a>]</td>
+<td><div class="info">
+<code class="code">unsafe_update pm ix node</code> updates the node associated with node
+      index <code class="code">ix</code> in map <code class="code">pm</code> with <code class="code">node</code>.
+</div>
+</td></tr>
+<tr><td><a href="Store_intf.STORE.html#VALupdate">update</a> [<a href="Store_intf.STORE.html">Store_intf.STORE</a>]</td>
+<td><div class="info">
+<code class="code">update ix el s</code> rebinds index <code class="code">ix</code> in store <code class="code">s</code> to point to
+      <code class="code">el</code>, and returns the resulting store.
+</div>
+</td></tr>
+</table>
+</body>
+</html>
