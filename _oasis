@@ -1,6 +1,6 @@
 OASISFormat:      0.4
 Name:             pomap
-Version:          3.0.3
+Version:          3.0.4
 Synopsis:         pomap - Partially Ordered Maps for OCaml
 Description:      pomap supports creating and manipulating partially ordered maps in a purely functional and efficient way.
 Authors:          Markus Mottl <markus.mottl@gmail.com>
@@ -10,7 +10,7 @@ LicenseFile:      COPYING.txt
 License:          LGPL-2.1+ with OCaml linking exception
 OCamlVersion:     >= 3.12
 FindlibVersion:   >= 1.3.1
-Homepage:         https://bitbucket.org/mmottl/pomap
+Homepage:         http://mmottl.github.io/pomap
 #Categories:
 #FilesAB:
 
@@ -54,8 +54,8 @@ Document API
   XOCamlbuildPath:      .
   XOCamlbuildLibraries: pomap
 
-SourceRepository trunk
-  Type:       hg
-  Location:   ssh://hg@bitbucket.org/mmottl/pomap
-  Browser:    https://bitbucket.org/mmottl/pomap
-  Tag:        release-$(pkg_version)
+SourceRepository head
+  Type:       Git
+  Location:   https://github.com/mmottl/pomap.git
+  Browser:    https://github.com/mmottl/pomap
+  Tag:        v$(pkg_version)

@@ -12,7 +12,7 @@ map values for which a partial order relation is defined to some arbitrary
 other values.  Here is an example for a partially ordered set to visualize
 the idea:
 
-  ![Hasse Diagram of a Partially Ordered Set](https://bitbucket.org/mmottl/pomap/downloads/hasse.png "Hasse Diagram of a Partially Ordered Set")
+  ![Hasse Diagram of a Partially Ordered Set](http://mmottl.github.io/pomap/hasse.png "Hasse Diagram of a Partially Ordered Set")
 
 Whereas total orders allow you to say whether some element is smaller than,
 equal to, or greater than another one, partial orders also allow for a
@@ -21,30 +21,33 @@ equal to, or greater than another one, partial orders also allow for a
 Mathematically speaking, the axioms that hold for a partial order relation
 are the following:
 
-    :::text
-              x <= x            (reflexivity)
-    x <= y /\ y <= x -> x = y   (antisymmetry)
-    x <= y /\ y <= z -> x <= z  (transitivity)
+```text
+          x <= x            (reflexivity)
+x <= y /\ y <= x -> x = y   (antisymmetry)
+x <= y /\ y <= z -> x <= z  (transitivity)
+```
 
 Total orders, as usually used for "normal" maps that programmers are acquainted
 with, would additionally require the following axiom:
 
-    :::text
-    x <= y \/ y <= x  (totality)
+```text
+x <= y \/ y <= x  (totality)
+```
 
 Whereas a total order allows you to align elements in a linear way to exhibit
 this order relation (e.g. `[1; 3; 7; 42]`), partial orders are usually
 represented by graphs (so-called Hasse-diagrams).  Here is another example:
 
-    :::text
-                               (89,73)   (93,21)
-                                  |
-                      (91,38)  (57,42)
-                         |    /   |
-                         |   /    |
-                      (44,26)  (25,42)
-                          \       /
-                           (22,23)
+```text
+                           (89,73)   (93,21)
+                              |
+                  (91,38)  (57,42)
+                     |    /   |
+                     |   /    |
+                  (44,26)  (25,42)
+                      \       /
+                       (22,23)
+```
 
 The elements of this example partial order structure are pairs of integers.
 We say that an element (a pair) is larger than another one if both of
@@ -142,7 +145,7 @@ Usage
 
 Please refer to the API-documentation as programming reference, which
 is built during installation with `make doc`.  It can also be found
-[online](http://mmottl.bitbucket.org/projects/pomap/api/).
+[online](http://mmottl.github.io/pomap/api).
 
 ### Specification of the partial order relation
 
@@ -150,12 +153,13 @@ All you need to provide is the function that computes the partial order
 relation between two elements.  Take a look at the signature `PARTIAL_ORDER`
 in file `lib/pomap_intf.ml`:
 
-    :::ocaml
-    module type PARTIAL_ORDER = sig
-      type el
-      type ord = Unknown | Lower | Equal | Greater
-      val compare : el -> el -> ord
-    end
+```ocaml
+module type PARTIAL_ORDER = sig
+  type el
+  type ord = Unknown | Lower | Equal | Greater
+  val compare : el -> el -> ord
+end
+```
 
 You only have to specify the type of elements of the partially ordered
 structure and a comparison function that returns `Unknown` if the elements
@@ -169,8 +173,9 @@ in directory `examples/hasse/po_examples.ml`.
 Given the specification, e.g. `MyPO`, of a partial order relation, we can
 now create a map of partially ordered elements like this:
 
-    :::ocaml
-    module MyPOMap = Pomap_impl.Make(MyPO)
+```ocaml
+module MyPOMap = Pomap_impl.Make(MyPO)
+```
 
 The interface specification `POMAP` in file `lib/pomap_intf.ml` documents in
 detail all the functions that can be applied to partially ordered maps and
@@ -201,9 +206,8 @@ Contact Information and Contributing
 In the case of bugs, feature requests, contributions and similar, you can
 contact me here: <markus.mottl@gmail.com>
 
-Up-to-date information should be available at:
-<https://bitbucket.org/mmottl/pomap>
+Up-to-date information should be available at: <http://mmottl.github.io/pomap>
 
 Enjoy!
 
-Markus Mottl in Rutherford, NJ on July 10, 2012
+Markus Mottl on July 10, 2012
