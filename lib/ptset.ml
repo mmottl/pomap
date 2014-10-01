@@ -345,3 +345,7 @@ let find e t = if mem e t then e else raise Not_found
 let equal = (=)
 
 let compare = compare
+
+let of_list lst =
+  let coll acc el = add el acc in
+  List.fold_left coll empty lst

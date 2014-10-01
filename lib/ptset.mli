@@ -78,3 +78,5 @@ val find : elt -> t -> elt
 
 val min_elt : t -> elt
 val max_elt : t -> elt
+
+val of_list : elt list -> t
