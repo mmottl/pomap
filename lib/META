@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: 2e31229ea063bc4b946f528aeaa73e45)
-version = "3.0.4"
+# DO NOT EDIT (digest: 2e334ba032274437c63f6645631892dd)
+version = "3.0.5"
 description = "pomap - Partially Ordered Maps for OCaml"
 archive(byte) = "pomap.cma"
 archive(byte, plugin) = "pomap.cma"
