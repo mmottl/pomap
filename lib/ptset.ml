@@ -267,6 +267,11 @@ let rec iter f = function
   | Leaf k -> f k
   | Branch (_,_,t0,t1) -> iter f t0; iter f t1
 
+let map f t =
+  let res = ref Empty in
+  iter (fun el -> res := add (f el) !res) t;
+  !res
+
 let rec fold f s accu = match s with
   | Empty -> accu
   | Leaf k -> f k accu

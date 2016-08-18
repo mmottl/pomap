@@ -58,6 +58,8 @@ val cardinal : t -> int
 
 val iter : (elt -> unit) -> t -> unit
 
+val map : (elt -> elt) -> t -> t
+
 val fold : (elt -> 'a -> 'a) -> t -> 'a -> 'a
 
 val for_all : (elt -> bool) -> t -> bool
