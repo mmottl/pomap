@@ -23,6 +23,7 @@
 (** Specification of a partial order relation *)
 module type PARTIAL_ORDER = sig
   type el (** Element type *)
+
   type ord = Unknown | Lower | Equal | Greater
   val compare : el -> el -> ord
 end
@@ -39,6 +40,7 @@ module type POMAP = sig
   type key (** Type of map keys *)
 
   type (+'a) node (** Type of nodes in the partially ordered map *)
+
   type (+'a) pomap (** Type of partially ordered maps *)
 
   (** Type of result originating from an [add_find] operation *)
