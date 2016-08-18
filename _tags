@@ -1,8 +1,9 @@
 # OASIS_START
-# DO NOT EDIT (digest: 0678a864119b3c258f6c63030be8973d)
+# DO NOT EDIT (digest: e1ad031cea63182a95180348390a785b)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
+true: annot, bin_annot
 <**/.svn>: -traverse
 <**/.svn>: not_hygienic
 ".bzr": -traverse
@@ -17,7 +18,7 @@
 "lib/pomap.cmxs": use_pomap
 # Executable cloc
 <examples/hasse/hasse.{native,byte}>: use_pomap
-<examples/hasse/*.ml{,i}>: use_pomap
+<examples/hasse/*.ml{,i,y}>: use_pomap
 # OASIS_STOP
 
 true: -traverse

@@ -1,10 +1,10 @@
 OASISFormat:      0.4
 Name:             pomap
-Version:          3.0.5
+Version:          3.0.6
 Synopsis:         pomap - Partially Ordered Maps for OCaml
 Description:      pomap supports creating and manipulating partially ordered maps in a purely functional and efficient way.
 Authors:          Markus Mottl <markus.mottl@gmail.com>
-Copyrights:       (C) 2001-2012 Markus Mottl <markus.mottl@gmail.com>
+Copyrights:       (C) 2001-2016 Markus Mottl <markus.mottl@gmail.com>
 Maintainers:      Markus Mottl <markus.mottl@gmail.com>
 LicenseFile:      COPYING.txt
 License:          LGPL-2.1+ with OCaml linking exception
