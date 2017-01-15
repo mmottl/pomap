@@ -20,7 +20,7 @@ XStdFilesREADME:  false
 BuildTools:       ocamldoc, ocamlbuild
 
 Library pomap
-  Path:           lib
+  Path:           src
   FindlibName:    pomap
   Modules:        Display_hasse_impl,
                   Display_hasse_intf,
