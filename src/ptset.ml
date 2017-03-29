@@ -1,6 +1,7 @@
 (*
  * Ptset: Sets of integers implemented as Patricia trees.
  * Copyright (C) 2000 Jean-Christophe FILLIATRE
+ * Copyright (C) 2006- Markus Mottl
  *
  * This software is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -308,6 +309,11 @@ let rec choose = function
   | Leaf k -> k
   | Branch (_, _,t0,_) -> choose t0   (* we know that [t0] is non-empty *)
 
+let rec choose_opt = function
+  | Empty -> None
+  | Leaf k -> Some k
+  | Branch (_, _,t0,_) -> choose_opt t0   (* we know that [t0] is non-empty *)
+
 let split x s =
   let coll k (l, b, r) =
     if k < x then add k l, b, r
@@ -336,12 +342,60 @@ let rec min_elt = function
   | Leaf k -> k
   | Branch (_,_,s,t) -> min (min_elt s) (min_elt t)
 
+let min_elt_opt = function
+  | Empty -> None
+  | Leaf k -> Some k
+  | Branch (_,_,s,t) -> Some (min (min_elt s) (min_elt t))
+
 let rec max_elt = function
   | Empty -> raise Not_found
   | Leaf k -> k
   | Branch (_,_,s,t) -> max (max_elt s) (max_elt t)
 
+let max_elt_opt = function
+  | Empty -> None
+  | Leaf k -> Some k
+  | Branch (_,_,s,t) -> Some (max (max_elt s) (max_elt t))
+
 let find e t = if mem e t then e else raise Not_found
+
+let find_opt e t = if mem e t then Some e else None
+
+let rec find_first f = function
+  | Leaf k when f k -> k
+  | Empty | Leaf _ -> raise Not_found
+  | Branch (_,_,s,t) ->
+      match find_first_opt f s, find_first_opt f t with
+      | Some vs, Some vt -> min vs vt
+      | Some v, None | None, Some v -> v
+      | None, None -> raise Not_found
+
+and find_first_opt f = function
+  | Leaf k when f k -> Some k
+  | Empty | Leaf _ -> None
+  | Branch (_,_,s,t) ->
+      match find_first_opt f s, find_first_opt f t with
+      | Some vs, Some vt -> Some (min vs vt)
+      | Some _ as opt_v, None | None, (Some _ as opt_v) -> opt_v
+      | None, None -> None
+
+let rec find_last f = function
+  | Leaf k when f k -> k
+  | Empty | Leaf _ -> raise Not_found
+  | Branch (_,_,s,t) ->
+      match find_last_opt f s, find_last_opt f t with
+      | Some vs, Some vt -> max vs vt
+      | Some v, None | None, Some v -> v
+      | None, None -> raise Not_found
+
+and find_last_opt f = function
+  | Leaf k when f k -> Some k
+  | Empty | Leaf _ -> None
+  | Branch (_,_,s,t) ->
+      match find_last_opt f s, find_last_opt f t with
+      | Some vs, Some vt -> Some (max vs vt)
+      | Some _ as opt_v, None | None, (Some _ as opt_v) -> opt_v
+      | None, None -> None
 
 (*s Another nice property of Patricia trees is to be independent of the
     order of insertion. As a consequence, two Patricia trees have the

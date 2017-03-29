@@ -1,6 +1,7 @@
 (*
  * Ptset: Sets of integers implemented as Patricia trees.
  * Copyright (C) 2000 Jean-Christophe FILLIATRE
+ * Copyright (C) 2006- Markus Mottl
  * 
  * This software is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -54,6 +55,8 @@ val elements : t -> elt list
 
 val choose : t -> elt
 
+val choose_opt : t -> elt option
+
 val cardinal : t -> int
 
 val iter : (elt -> unit) -> t -> unit
@@ -74,11 +77,28 @@ val split : elt -> t -> t * bool * t
 
 val find : elt -> t -> elt
 
-(*s Warning: [min_elt] and [max_elt] are linear w.r.t. the size of the
-    set. In other words, [min_elt t] is barely more efficient than [fold
-    min t (choose t)]. *)
+val find_opt : elt -> t -> elt option
+
+(*s Warning: [min_elt], [max_elt], [find_first], [find_last], and their
+    optional counterparts are linear w.r.t. the size of the set.
+
+    E.g. [min_elt t] is barely more efficient than [fold min t (choose t)].
+*)
 
 val min_elt : t -> elt
+
+val min_elt_opt : t -> elt option
+
 val max_elt : t -> elt
+
+val max_elt_opt : t -> elt option
+
+val find_first : (elt -> bool) -> t -> elt
+
+val find_first_opt : (elt -> bool) -> t -> elt option
+
+val find_last : (elt -> bool) -> t -> elt
+
+val find_last_opt : (elt -> bool) -> t -> elt option
 
 val of_list : elt list -> t
