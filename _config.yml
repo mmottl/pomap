@@ -1,0 +1,8 @@
+title: POMAP
+description: OCaml library for partially ordered maps
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
