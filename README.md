@@ -140,7 +140,7 @@ with native code on modern machines.
 
 Please refer to the API-documentation as programming reference, which
 is built during installation with `make doc`.  It can also be found
-[online](http://mmottl.github.io/pomap/api).
+[online](http://mmottl.github.io/pomap/api/pomap).
 
 #### Specification of the partial order relation
 
