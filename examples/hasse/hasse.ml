@@ -22,6 +22,7 @@
 
 open Format
 open Po_examples
+open Pomap
 
 (* Parse arguments *)
 let n, len, choices =

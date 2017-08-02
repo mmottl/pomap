@@ -1,5 +1,3 @@
-# OASIS_START
-# DO NOT EDIT (digest: 981da3f26f04485b07c5affc8ade293a)
 src/Display_hasse_impl
 src/Display_hasse_intf
 src/Pomap_impl
@@ -7,4 +5,3 @@ src/Pomap_intf
 src/Ptset
 src/Store_impl
 src/Store_intf
-# OASIS_STOP
