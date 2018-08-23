@@ -22,11 +22,11 @@
 
 (** Specification of indices used to index elements in stores *)
 module type INDEX = sig
-  type t (** Type of indices *)
+  type t = int (** Type of indices *)
 
   type gen (** Type of index generators *)
 
-  module Set : Set.S with type elt = t (** Efficient sets of indices *)
+  module Set : module type of Ptset (** Efficient sets of indices *)
 
   module Map : Map.S with type key = t (** Efficient maps of indices *)
 
