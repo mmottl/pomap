@@ -1,10 +1,10 @@
-(lang dune 1.10)
+(lang dune 2.7)
 (name pomap)
 
 (generate_opam_files true)
 
 (source (github mmottl/pomap))
-(license "LGPL-2.1+ with OCaml linking exception")
+(license "LGPL-2.1-or-later with OCaml-LGPL-linking-exception")
 (homepage "https://mmottl.github.io/pomap")
 (documentation "https://mmottl.github.io/pomap/api")
 
@@ -19,6 +19,5 @@ POMAP supports creating and manipulating partially ordered maps in a purely
 functional and efficient way.")
   (depends
     (ocaml (>= 4.08))
-    (dune (>= 1.10))
   )
 )

@@ -1,4 +1,5 @@
 (executables
   (names hasse)
   (libraries pomap)
+  (modes byte exe)
 )
