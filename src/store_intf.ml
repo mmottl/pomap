@@ -1,34 +1,35 @@
-(*
-   POMAP - Library for manipulating partially ordered maps
+(* POMAP - Library for manipulating partially ordered maps
 
-   Copyright (C) 2001-2002  Markus Mottl  (OEFAI)
-   email: markus.mottl@gmail.com
-   WWW:   http://www.ocaml.info
+   Copyright (C) 2001-2002 Markus Mottl (OEFAI) email: markus.mottl@gmail.com
+   WWW: http://www.ocaml.info
 
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Lesser General Public
-   License as published by the Free Software Foundation; either
-   version 2.1 of the License, or (at your option) any later version.
+   This library is free software; you can redistribute it and/or modify it under
+   the terms of the GNU Lesser General Public License as published by the Free
+   Software Foundation; either version 2.1 of the License, or (at your option)
+   any later version.
 
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Lesser General Public License for more details.
+   This library is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+   details.
 
-   You should have received a copy of the GNU Lesser General Public
-   License along with this library; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-*)
+   You should have received a copy of the GNU Lesser General Public License
+   along with this library; if not, write to the Free Software Foundation, Inc.,
+   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA *)
 
 (** Specification of indices used to index elements in stores *)
 module type INDEX = sig
-  type t = int (** Type of indices *)
+  type t = int
+  (** Type of indices *)
 
-  type gen (** Type of index generators *)
+  type gen
+  (** Type of index generators *)
 
-  module Set : module type of Ptset (** Efficient sets of indices *)
+  module Set : module type of Ptset
+  (** Efficient sets of indices *)
 
-  module Map : Map.S with type key = t (** Efficient maps of indices *)
+  module Map : Map.S with type key = t
+  (** Efficient maps of indices *)
 
   val start : gen
   (** The start state of the index generator *)
@@ -53,9 +54,11 @@ end
 
 (** Interface to stores *)
 module type STORE = sig
-  module Ix : INDEX (** Index module used to index elements in the store *)
+  module Ix : INDEX
+  (** Index module used to index elements in the store *)
 
-  type (+'a) t (** Type of stores *)
+  type +'a t
+  (** Type of stores *)
 
   val empty : 'a t
   (** The empty store *)
@@ -85,24 +88,22 @@ module type STORE = sig
       @raise Not_found if index [ix] not bound. *)
 
   val update : Ix.t -> 'a -> 'a t -> 'a t
-  (** [update ix el s] rebinds index [ix] in store [s] to point to
-      [el], and returns the resulting store. The previous binding
-      disappears. New indices resulting from further adds are guaranteed
-      to have higher indices.
+  (** [update ix el s] rebinds index [ix] in store [s] to point to [el], and
+      returns the resulting store. The previous binding disappears. New indices
+      resulting from further adds are guaranteed to have higher indices.
       @raise Not_found if index [ix] not bound. *)
 
   val remove : Ix.t -> 'a t -> 'a t
-  (** [remove ix s] removes the binding of index [ix] of store [s],
-      and returns the resulting store. *)
+  (** [remove ix s] removes the binding of index [ix] of store [s], and returns
+      the resulting store. *)
 
   val iter : ('a -> unit) -> 'a t -> unit
-  (** [iter f s] applies [f] to all stored elements in store [s]. The
-      order in which elements are passed to [f] is unspecified. *)
+  (** [iter f s] applies [f] to all stored elements in store [s]. The order in
+      which elements are passed to [f] is unspecified. *)
 
   val iteri : (Ix.t -> 'a -> unit) -> 'a t -> unit
-  (** [iter f s] applies [f] to all indexes and their related elements
-      in store [s]. The order in which elements are passed to [f] is
-      unspecified. *)
+  (** [iter f s] applies [f] to all indexes and their related elements in store
+      [s]. The order in which elements are passed to [f] is unspecified. *)
 
   val map : ('a -> 'b) -> 'a t -> 'b t
   (** [map f s] @return a store with all elements in [s] mapped from
@@ -115,17 +116,16 @@ module type STORE = sig
       associated with the elements. *)
 
   val fold : ('a -> 'b -> 'b) -> 'a t -> 'b -> 'b
-  (** [fold f s a] computes [(f eN ... (f e1 a) ...)], where [e1 ... eN]
-      are the elements of all bindings in store [s]. The order in which
-      the bindings are presented to [f] is unspecified. *)
+  (** [fold f s a] computes [(f eN ... (f e1 a) ...)], where [e1 ... eN] are the
+      elements of all bindings in store [s]. The order in which the bindings are
+      presented to [f] is unspecified. *)
 
   val foldi : (Ix.t -> 'a -> 'b -> 'b) -> 'a t -> 'b -> 'b
-  (** [foldi f s a] same as [fold], but function [f] also receives
-      the index associated with the elements. *)
+  (** [foldi f s a] same as [fold], but function [f] also receives the index
+      associated with the elements. *)
 
   val to_list : 'a t -> (Ix.t * 'a) list
-  (** [to_list s] converts [s] to an association list of indices and
-      elements. *)
+  (** [to_list s] converts [s] to an association list of indices and elements. *)
 
   val choose : 'a t -> Ix.t * 'a
   (** [choose s] @return a tuple [(ix, x)], where [ix] is the index

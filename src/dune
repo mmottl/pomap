@@ -1,1 +1,2 @@
-(library (public_name pomap))
+(library
+ (public_name pomap))

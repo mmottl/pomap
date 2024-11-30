@@ -1,24 +1,21 @@
-(*
-   hasse.ml - generation of Hasse-diagrams of partially ordered random lists
+(* hasse.ml - generation of Hasse-diagrams of partially ordered random lists
 
-   Copyright (C) 2001-2002  Markus Mottl  (OEFAI)
-   email: markus.mottl@gmail.com
-   WWW:   http://www.ocaml.info
+   Copyright (C) 2001-2002 Markus Mottl (OEFAI) email: markus.mottl@gmail.com
+   WWW: http://www.ocaml.info
 
-   This program is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public License
-   as published by the Free Software Foundation; either version 2
-   of the License, or (at your option) any later version.
-   
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 59 Temple Place --- Suite 330, Boston, MA 02111-1307, USA.
-*)
+   This program is free software; you can redistribute it and/or modify it under
+   the terms of the GNU General Public License as published by the Free Software
+   Foundation; either version 2 of the License, or (at your option) any later
+   version.
+
+   This program is distributed in the hope that it will be useful, but WITHOUT
+   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+   FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+   details.
+
+   You should have received a copy of the GNU General Public License along with
+   this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+   Place --- Suite 330, Boston, MA 02111-1307, USA. *)
 
 open Format
 open Po_examples
@@ -32,40 +29,44 @@ let n, len, choices =
   and help_ref = ref false in
   Random.self_init ();
 
-  let help = "-help", Arg.Set help_ref, "\tdisplay this list of options"
-
+  let help = ("-help", Arg.Set help_ref, "\tdisplay this list of options")
   and n =
-   "-n",
-   Arg.Int ((:=) n_ref),
-   (sprintf "\t\tnumber of random elements (default: %d)" !n_ref)
-
+    ( "-n",
+      Arg.Int (( := ) n_ref),
+      sprintf "\t\tnumber of random elements (default: %d)" !n_ref )
   and l =
-   "-l",
-   Arg.Int ((:=) l_ref),
-   (sprintf "\t\tlength of element lists (default: %d)" !l_ref)
-
+    ( "-l",
+      Arg.Int (( := ) l_ref),
+      sprintf "\t\tlength of element lists (default: %d)" !l_ref )
   and c =
-   "-c",
-   Arg.Int ((:=) c_ref),
-   (sprintf "\t\tnumber of choices per list element (default: %d)" !c_ref)
-
-  and s = "-s", Arg.Int Random.init, "\t\tinitial random seed (default: random)"
-
+    ( "-c",
+      Arg.Int (( := ) c_ref),
+      sprintf "\t\tnumber of choices per list element (default: %d)" !c_ref )
+  and s =
+    ("-s", Arg.Int Random.init, "\t\tinitial random seed (default: random)")
   and usage =
     "Usage: hasse [-help] [-n int] [-l int] [-c int] [-s int]\n\n\
      Generates Hasse-diagrams of partially ordered random lists.\n\
-     Prints to standard output in a format recognized by AT&T's \
-     \"dot\"-utility.\n" in
+     Prints to standard output in a format recognized by AT&T's \"dot\"-utility.\n"
+  in
 
-  let args = [help; n; l; c; s] in
-  let others _ = Arg.usage args usage; exit 1 in
+  let args = [ help; n; l; c; s ] in
+  let others _ =
+    Arg.usage args usage;
+    exit 1
+  in
   Arg.parse args others usage;
-  if !help_ref then begin Arg.usage args usage; exit 0 end;
-  !n_ref, !l_ref, !c_ref
+  if !help_ref then (
+    Arg.usage args usage;
+    exit 0);
+  (!n_ref, !l_ref, !c_ref)
 
-module PO = MakePONList (struct let len = len let choices = choices end)
+module PO = MakePONList (struct
+  let len = len
+  let choices = choices
+end)
+
 module POMap = Pomap_impl.Make (PO)
-
 open Display_hasse_impl
 
 module DisplaySpec = struct
