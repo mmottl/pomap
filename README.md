@@ -1,21 +1,19 @@
-## POMAP - Partially Ordered Maps for OCaml
+# POMAP - Partially Ordered Maps for OCaml
 
-### What is `Pomap`?
+## What is `Pomap`?
 
-The Pomap-library maintains purely functional maps of partially ordered
-elements.  Partially ordered maps are similar to partially ordered sets, but
-map values for which a partial order relation is defined to some arbitrary
-other values.  Here is an example for a partially ordered set to visualize
-the idea:
+The Pomap library provides purely functional maps for partially ordered
+elements. These maps are like partially ordered sets but map values with a
+defined partial order relation to arbitrary other values. Here's an example
+of a partially ordered set:
 
-  ![Hasse Diagram of a Partially Ordered Set](http://mmottl.github.io/pomap/hasse.png "Hasse Diagram of a Partially Ordered Set")
+![Hasse Diagram of a Partially Ordered Set](http://mmottl.github.io/pomap/hasse.png "Hasse Diagram of a Partially Ordered Set")
 
-Whereas total orders allow you to say whether some element is smaller than,
-equal to, or greater than another one, partial orders also allow for a
-"don't know"- or "undefined"-case.
+While total orders let you determine if an element is smaller, equal, or
+greater than another, partial orders introduce a "don't know" or "undefined"
+case.
 
-Mathematically speaking, the axioms that hold for a partial order relation
-are the following:
+Mathematically, a partial order relation satisfies these axioms:
 
 ```text
           x <= x            (reflexivity)
@@ -23,16 +21,15 @@ x <= y /\ y <= x -> x = y   (antisymmetry)
 x <= y /\ y <= z -> x <= z  (transitivity)
 ```
 
-Total orders, as usually used for "normal" maps that programmers are acquainted
-with, would additionally require the following axiom:
+Total orders, used in typical maps, also require:
 
 ```text
 x <= y \/ y <= x  (totality)
 ```
 
-Whereas a total order allows you to align elements in a linear way to exhibit
-this order relation (e.g. `[1; 3; 7; 42]`), partial orders are usually
-represented by graphs (so-called Hasse-diagrams).  Here is another example:
+Total orders align elements linearly (e.g., `[1; 3; 7; 42]`), while partial
+orders are often represented by graphs, such as Hasse diagrams. Here's another
+example:
 
 ```text
                            (89,73)   (93,21)
@@ -45,108 +42,63 @@ represented by graphs (so-called Hasse-diagrams).  Here is another example:
                        (22,23)
 ```
 
-The elements of this example partial order structure are pairs of integers.
-We say that an element (a pair) is larger than another one if both of
-its integers are larger then the respective integers in the other pair.
-If both integers are smaller, then the pair is smaller, and if the two pairs
-contain equal elements, they are equal.  If none of the above holds e.g. if
-the first element of the first pair is smaller than the corresponding one
-of the second pair and the second element of the first pair is greater than
-its corresponding element of the second pair, then we cannot say that either
-of the pairs is greater or smaller, i.e. the order is "unknown" (e.g. pairs
-(44,26) and (25,42)).
+In this structure, pairs of integers are elements. A pair is larger if both
+integers are larger than those in another pair. If both are smaller, the
+pair is smaller. If pairs have equal elements, they are equal. If neither
+condition holds, the order is "unknown" (e.g., pairs (44,26) and (25,42)).
 
-Lines connecting elements indicate the order of the elements: the greater
-element is above the smaller element.  Hasse-diagrams do not display the
-order if it is implied by transitivity.  E.g. there is no separate line for
-the elements (89,73) and (25,42).  If elements cannot be reached on lines
-without reversing direction, then they cannot be compared.  E.g. the pair
-(93,21) is incomparable to all others whereas (44,26) cannot be compared to
-this latter pair and to (25,42) only.
+Lines show order: the greater element appears above the smaller one. Hasse
+diagrams omit lines implied by transitivity. For example, there's no line
+between (89,73) and (25,42). If elements are unreachable without reversing
+direction, they are incomparable (e.g., (93,21) is incomparable to others).
 
-This library internally represents relations between known elements similar
-to Hasse-diagram.  This allows you to easily reason about or quickly manipulate
-such structures.
+Internally, the library represents relations similarly to Hasse diagrams,
+enabling easy reasoning and quick manipulation.
 
-Sounds too mathematical so far? There are many uses for such a library!
+## Application Areas
 
-#### Application areas
+### Data Mining
 
-#####  Data-mining
+Concept lattices, which have a similar structure as partial orders, can be
+managed with this library. For instance, an e-commerce site could use it to
+identify frequently bought product baskets.
 
-Concept lattices obey rules similar to partial orders and can also be handled
-using this library.  E.g., you might have a big e-commerce site with lots
-of products.  For marketing purposes it would be extremely useful to know
-product baskets that people frequently buy.  This is equivalent to asking
-where in a Hasse-diagram such baskets might be placed.
+### Databases
 
-Or imagine you develop a medical system that automatically associates different
-mixes of medication with illnesses they effectively treat to support doctors
-in deciding on a therapy.  This can all be addressed with concept lattices.
+Partial order structures can optimize database queries on multi-valued
+attributes by improving indexing.
 
-##### Software engineering
+## Advantages of This Library
 
-Refactoring software to reduce complexity is an important task for large
-software projects.  If you have many different components that implement
-many different features, you might want to know whether there are groups
-of components that make use of specific features in other components.
-You could then find out whether the current form of abstraction exactly
-meets these dependencies, possibly learning that you should factor out a
-set of features in a separate module to reduce overall complexity.
+### Referential Transparency
 
-##### Databases
+Functions handle data structures purely functionally, allowing more than
+one version in memory with structure sharing. This makes reverting changes
+efficient and safe for multi-threaded environments.
 
-Partial order structures represented by Hasse-diagrams can be used to
-optimize database queries on multi-valued attributes by providing better
-ways of indexing.
+### Incremental Updates
 
-##### General problem-solving
+Unlike algorithms that generate Hasse diagrams in batches, this library
+supports efficient incremental updates, adding or removing elements as needed.
 
-For general problem-solving we often need at least to know whether some
-solution is better, equal to, worse or incomparable to another.  Given a
-large number of known solutions, the partial order structure containing the
-elements can be used to draw conclusions about e.g. whether their particular
-form (syntax) implies anything about their position in the partial order
-(semantic aspect).
+### Efficiency
 
-#### What advantages does this particular library offer?
+Time and memory consumption are suitable for practical problems. Building a
+Hasse diagram for 1000 elements of moderate complexity typically takes less
+than a second on modern machines.
 
-##### Referential transparency
+## Usage
 
-The currently implemented functions all handle the data structure in a purely
-functional way.  This allows you to hold several versions of a data structure
-in memory while benefiting from structure sharing.  This makes backing out
-changes to the data structure efficient and straightforward and also allows
-you to use the library safely in a multi-threaded environment.
+## API Documentation
 
-##### Incremental updates
-
-Some algorithms only perform batch generation of Hasse-diagrams: once the
-diagram has been computed, one cannot use such algorithms to add further
-elements to it incrementally.  This library can handle incremental updates
-(adding and removing of elements) fairly efficiently as required for
-online-problems.
-
-##### Efficiency
-
-Both time and memory consumption seem suitable for practical problems,
-even not so small ones.  Building up the Hasse-diagram for 1000 elements of
-a moderately complex partial order should usually take less than a second
-with native code on modern machines.
-
-### Usage
-
-#### API-documentation
-
-Please refer to the API-documentation as programming reference, which
-is built during installation with `make doc`.  It can also be found
+Refer to the API documentation for programming reference, built during
+installation with `make doc`. The API documentation is also available
 [online](http://mmottl.github.io/pomap/api/pomap).
 
-#### Specification of the partial order relation
+## Specifying the Partial Order Relation
 
-All you need to provide is the function that computes the partial order
-relation between two elements.  Take a look at the signature `PARTIAL_ORDER`
-in file `lib/pomap_intf.ml`:
+Provide a function that computes the partial order relation between two
+elements. See the `PARTIAL_ORDER` signature in `lib/pomap_intf.ml`:
 
 ```ocaml
 module type PARTIAL_ORDER = sig
@@ -156,46 +108,36 @@ module type PARTIAL_ORDER = sig
 end
 ```
 
-You only have to specify the type of elements of the partially ordered
-structure and a comparison function that returns `Unknown` if the elements
-are not comparable, `Lower` if the first element is lower than the second,
-`Equal` when they are equal and `Greater` if the first element is greater
-than the second one.  You can find example implementations of such modules
-in directory `examples/hasse/po_examples.ml`.
+Specify the element type and a comparison function returning `Unknown` if
+elements are incomparable, `Lower` if the first is lower, `Equal` if equal,
+and `Greater` if the first is greater. Example implementations are in
+`examples/hasse/po_examples.ml`.
 
-#### Creating and using partially ordered maps
+## Creating and Using Partially Ordered Maps
 
-Given the specification, e.g. `MyPO`, of a partial order relation, we can
-now create a map of partially ordered elements like this:
+With a partial order relation specification, e.g., `MyPO`, create a map:
 
 ```ocaml
 module MyPOMap = Pomap_impl.Make(MyPO)
 ```
 
-The interface specification `POMAP` in file `lib/pomap_intf.ml` documents in
-detail all the functions that can be applied to partially ordered maps and
-objects they maintain.  The important aspect is that information is stored in
-nodes: you can access the key on which the partial order relation is defined,
-the associated data element, the set of indices of successors and the set
-of indices of predecessors.  Fresh indices are generated automatically for
-new nodes.
+The `POMAP` interface in `lib/pomap_intf.ml` defines functions for partially
+ordered maps. Nodes store information, accessible by key, data element,
+successor indices, and predecessor indices. The system generates fresh indices
+for new nodes.
 
-Together with accessors to the indices of the bottommost and topmost nodes in
-the partially ordered map, this allows for easy navigation in the associated
-Hasse-diagram.
+Accessors for bottommost and topmost node indices allow for navigation in
+the Hasse diagram.
 
-#### Rendering Hasse-diagrams using the dot-utility
+## Rendering Hasse Diagrams
 
-The Pomap-library also contains modules that allow you to easily render
-Hasse-diagrams given some partially ordered map and pretty-printing
-functions for elements.  This requires installation of the
-[Graphviz](http://www.graphviz.org) package, which supplies the needed
-`dot`-utility.  The use of these modules is demonstrated in the distributed
-`hasse`-example, which comes with its own README.
+The library includes modules for rendering Hasse diagrams using pretty-printing
+functions. This requires the [Graphviz](http://www.graphviz.org) package and
+its `dot` utility. The `hasse` example demonstrates usage and includes a README.
 
-### Contact Information and Contributing
+## Contact Information and Contributing
 
-Please submit bugs reports, feature requests, contributions and similar to
-the [GitHub issue tracker](https://github.com/mmottl/pomap/issues).
+Submit bug reports, feature requests, or contributions to the
+[GitHub issue tracker](https://github.com/mmottl/pomap/issues).
 
-Up-to-date information is available at: <https://mmottl.github.io/pomap>
+Find up-to-date information at: <https://mmottl.github.io/pomap>
