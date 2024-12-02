@@ -102,8 +102,8 @@ module type STORE = sig
   val find : Ix.t -> 'a t -> 'a
   (** [find ix s]
 
-      @return the element stored under index [ix].  @raise Not_found if index
-      [ix] not bound. *)
+      @return the element stored under index [ix].
+      @raise Not_found if index [ix] not bound. *)
 
   val update : Ix.t -> 'a -> 'a t -> 'a t
   (** [update ix el s] rebinds index [ix] in store [s] to point to [el], and
