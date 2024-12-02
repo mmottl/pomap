@@ -1,18 +1,19 @@
-### ?.?.? (????-??-??)
+## 4.1.2 (2024-12-01)
 
-  * Switched to OPAM file generation via `dune-project`
+- Improved documentation
 
+- Formatted all OCaml code with `ocamlformat`
 
-### 4.1.1 (2018-10-25)
+- Switched to OPAM file generation via `dune-project`
 
-  * Updates for dune-release and OPAM 2.0
+## 4.1.1 (2018-10-25)
 
+- Updates for dune-release and OPAM 2.0
 
-### 4.1.0 (2018-08-23)
+## 4.1.0 (2018-08-23)
 
-  * Switched to Dune
+- Switched to Dune
 
+## 4.0.0 (2017-08-02)
 
-### 4.0.0 (2017-08-02)
-
-  * Switched to jbuilder and topkg
+- Switched to jbuilder and topkg
