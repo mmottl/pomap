@@ -29,7 +29,7 @@ end
 
 (** Interface to partially ordered maps *)
 module type POMAP = sig
-  (** {6 Modules and types} *)
+  (** {1 Modules and types} *)
 
   module Store : Store_intf.STORE
   (** Store module used to store nodes of the partially ordered map. *)
@@ -50,58 +50,82 @@ module type POMAP = sig
     | Found of Ix.t * 'a node
     | Added of Ix.t * 'a node * 'a pomap
 
-  (** {6 Map-constructors} *)
+  (** {1 Map-constructors} *)
 
   val empty : 'a pomap
   (** The empty partially ordered map. *)
 
   val singleton : key -> 'a -> 'a pomap
-  (** [singleton k el] @return a partially ordered map containing as only
-      binding the one from [k] to [el]. *)
+  (** [singleton k el]
 
-  (** {6 Information on maps} *)
+      @return
+        a partially ordered map containing as only binding the one from [k] to
+        [el]. *)
+
+  (** {1 Information on maps} *)
 
   val is_empty : 'a pomap -> bool
   (** [is_empty pm] tests whether partially ordered map [pm] is empty. *)
 
   val cardinal : 'a pomap -> int
-  (** [cardinal pm] @return the number of elements in [pm]. *)
+  (** [cardinal pm]
 
-  (** {6 Adding and removing} *)
+      @return the number of elements in [pm]. *)
+
+  (** {1 Adding and removing} *)
 
   val add : key -> 'a -> 'a pomap -> 'a pomap
-  (** [add k el pm] @return a partially ordered map containing the same
-      bindings as [pm], plus a binding of [k] to [el]. If [k] was already
-      bound in [pm], its previous binding disappears. *)
+  (** [add k el pm]
+
+      @return
+        a partially ordered map containing the same bindings as [pm], plus a
+        binding of [k] to [el]. If [k] was already bound in [pm], its previous
+        binding disappears. *)
 
   val add_node : 'a node -> 'a pomap -> 'a pomap
-  (** [add_node node pm] @return a partially ordered map containing
-      the same bindings as [pm] plus a binding as represented by
-      [node]. If the associated key already existed in [pm], its previous
-      binding disappears. *)
+  (** [add_node node pm]
+
+      @return
+        a partially ordered map containing the same bindings as [pm] plus a
+        binding as represented by [node]. If the associated key already existed
+        in [pm], its previous binding disappears. *)
 
   val remove : key -> 'a pomap -> 'a pomap
-  (** [remove k pm] @return a map containing the same bindings as
-      [pm] except for the node with key [k]. *)
+  (** [remove k pm]
+
+      @return
+        a map containing the same bindings as [pm] except for the node with key
+        [k]. *)
 
   val remove_node : 'a node -> 'a pomap -> 'a pomap
-  (** [remove_node node pm] @return a map containing the same bindings as
-      [pm] except for the one with the key of [node]. *)
+  (** [remove_node node pm]
+
+      @return
+        a map containing the same bindings as [pm] except for the one with the
+        key of [node]. *)
 
   val remove_ix : Ix.t -> 'a pomap -> 'a pomap
-  (** [remove_ix ix pm] @return a map containing the same bindings as
-      [pm] except for the node indexed by [ix].
+  (** [remove_ix ix pm]
+
+      @return
+        a map containing the same bindings as [pm] except for the node indexed
+        by [ix].
       @raise Not_found if [ix] does not index any node. *)
 
   val take : key -> 'a pomap -> Ix.t * 'a node * 'a pomap
-  (** [take k pm] @return a tuple [(ix, node, map)], where [ix] is
-      the index of the [node] associated with key [k] in [pm], and [map]
-      is [pm] without this element.
+  (** [take k pm]
+
+      @return
+        a tuple [(ix, node, map)], where [ix] is the index of the [node]
+        associated with key [k] in [pm], and [map] is [pm] without this element.
       @raise Not_found if there is no binding for [key]. *)
 
   val take_ix : Ix.t -> 'a pomap -> 'a node * 'a pomap
-  (** [take_ix ix pm] @return a tuple [(n, m)], where [n] is the node
-      associated with index [ix], and [m] is a map without this element.
+  (** [take_ix ix pm]
+
+      @return
+        a tuple [(n, m)], where [n] is the node associated with index [ix], and
+        [m] is a map without this element.
       @raise Not_found if [ix] does not index any node. *)
 
   val add_find : key -> 'a -> 'a pomap -> 'a add_find_result
@@ -117,41 +141,57 @@ module type POMAP = sig
       then function [f] will be applied to the previously bound data. Otherwise
       the binding will be added as in [add]. *)
 
-  (** {6 Scanning and searching} *)
+  (** {1 Scanning and searching} *)
 
   val mem : key -> 'a pomap -> bool
-  (** [mem k pm] @return [true] if [pm] contains a binding for key [k]
-      and [false] otherwise. *)
+  (** [mem k pm]
+
+      @return
+        [true] if [pm] contains a binding for key [k] and [false] otherwise. *)
 
   val mem_ix : Ix.t -> 'a pomap -> bool
-  (** [mem el pm] @return [true] if [pm] contains a binding for data
-      element [el] and [false] otherwise. *)
+  (** [mem el pm]
+
+      @return
+        [true] if [pm] contains a binding for data element [el] and [false]
+        otherwise. *)
 
   val find : key -> 'a pomap -> Ix.t * 'a node
-  (** [find k pm] @return a tuple [(ix, node)], where [ix] is the index
-      of key [k] and [node] its associated node in map [pm].
+  (** [find k pm]
+
+      @return
+        a tuple [(ix, node)], where [ix] is the index of key [k] and [node] its
+        associated node in map [pm].
       @raise Not_found if no such binding exists. *)
 
   val find_ix : Ix.t -> 'a pomap -> 'a node
-  (** [find_ix ix pm] @return the node associated with index [ix] in map [pm].
+  (** [find_ix ix pm]
+
+      @return the node associated with index [ix] in map [pm].
       @raise Not_found if such a node does not exist. *)
 
   val choose : 'a pomap -> Ix.t * 'a node
-  (** [choose pm] @return a tuple [(ix, node)], where [ix] is the
-      index of the [node] of some unspecified element in [pm].
+  (** [choose pm]
+
+      @return
+        a tuple [(ix, node)], where [ix] is the index of the [node] of some
+        unspecified element in [pm].
       @raise Not_found if [pm] is empty. *)
 
   val filter : (Ix.t -> 'a node -> bool) -> 'a pomap -> 'a pomap
-  (** [filter p pm] @return the map of all elements in [pm] that
-      satisfy [p]. *)
+  (** [filter p pm]
+
+      @return the map of all elements in [pm] that satisfy [p]. *)
 
   val partition : (Ix.t -> 'a node -> bool) -> 'a pomap -> 'a pomap * 'a pomap
-  (** [partition p pm] @return a pair of maps [(pm1, pm2)], where
-      [pm1] is the map of all the elements of [pm] that satisfy the
-      predicate [p], and [pm2] is the map of all the elements of [pm]
-      that do not satisfy [p]. *)
+  (** [partition p pm]
 
-  (** {6 Iterators} *)
+      @return
+        a pair of maps [(pm1, pm2)], where [pm1] is the map of all the elements
+        of [pm] that satisfy the predicate [p], and [pm2] is the map of all the
+        elements of [pm] that do not satisfy [p]. *)
+
+  (** {1 Iterators} *)
 
   val iter : ('a node -> unit) -> 'a pomap -> unit
   (** [iter f pm] applies [f] to all bound nodes in map [pm]. The order in which
@@ -164,10 +204,12 @@ module type POMAP = sig
       associated with the nodes. *)
 
   val map : ('a node -> 'b) -> 'a pomap -> 'b pomap
-  (** [map f pm] @return a map with all nodes in [pm] mapped from
-      their original value to identical nodes whose data element is in
-      the codomain of [f]. The order in which nodes are passed to [f]
-      is unspecified. *)
+  (** [map f pm]
+
+      @return
+        a map with all nodes in [pm] mapped from their original value to
+        identical nodes whose data element is in the codomain of [f]. The order
+        in which nodes are passed to [f] is unspecified. *)
 
   val mapi : (Ix.t -> 'a node -> 'b) -> 'a pomap -> 'b pomap
   (** [mapi f pm] same as {!map}, but function [f] also receives the index
@@ -227,7 +269,7 @@ module type POMAP = sig
   (** [rev_chain_foldi f pm a] same as {!rev_chain_fold}, but function [f]
       receives chains including the index associated with the nodes. *)
 
-  (** {6 Set-like map-operations} *)
+  (** {1 Set-like map-operations} *)
 
   val union : 'a pomap -> 'a pomap -> 'a pomap
   (** [union pm1 pm2] merges [pm1] and [pm2], preserving the bindings of [pm1]. *)
@@ -239,23 +281,34 @@ module type POMAP = sig
   val diff : 'a pomap -> 'a pomap -> 'a pomap
   (** [diff pm1 pm2] removes all elements of [pm2] from [pm1]. *)
 
-  (** {6 Node-creators and accessors} *)
+  (** {1 Node-creators and accessors} *)
 
   val create_node : key -> 'a -> Ix.Set.t -> Ix.Set.t -> 'a node
-  (** [create_node k el sucs prds] @return a node with key [k], data
-      element [el], successors [sucs] and predecessors [prds]. *)
+  (** [create_node k el sucs prds]
+
+      @return
+        a node with key [k], data element [el], successors [sucs] and
+        predecessors [prds]. *)
 
   val get_key : 'a node -> key
-  (** [get_key n] @return the key associated with node [n]. *)
+  (** [get_key n]
+
+      @return the key associated with node [n]. *)
 
   val get_el : 'a node -> 'a
-  (** [get_el n] @return the data element associated with node [n]. *)
+  (** [get_el n]
+
+      @return the data element associated with node [n]. *)
 
   val get_sucs : 'a node -> Ix.Set.t
-  (** [get_sucs n] @return the successors associated with node [n]. *)
+  (** [get_sucs n]
+
+      @return the successors associated with node [n]. *)
 
   val get_prds : 'a node -> Ix.Set.t
-  (** [get_prds n] @return the predecessors associated with node [n]. *)
+  (** [get_prds n]
+
+      @return the predecessors associated with node [n]. *)
 
   val set_key : 'a node -> key -> 'a node
   (** [set_key n k] sets the key of node [n] to [k] and returns new node. *)
@@ -272,27 +325,39 @@ module type POMAP = sig
   (** [set_prds n prds] set the predecessors of node [n] to [prds] and returns
       new node. *)
 
-  (** {6 Map-accessors} *)
+  (** {1 Map-accessors} *)
 
   val get_nodes : 'a pomap -> 'a node Store.t
-  (** [get_nodes pm] @return the store of nodes associated
-      with partially ordered map [pm]. This store represents the
-      Hasse-graph of the nodes partially ordered by their keys. *)
+  (** [get_nodes pm]
+
+      @return
+        the store of nodes associated with partially ordered map [pm]. This
+        store represents the Hasse-graph of the nodes partially ordered by their
+        keys. *)
 
   val get_top : 'a pomap -> Ix.Set.t
-  (** [get_top pm] @return the set of node indices of nodes that are
-      greater than any other node in [pm] but themselves. *)
+  (** [get_top pm]
+
+      @return
+        the set of node indices of nodes that are greater than any other node in
+        [pm] but themselves. *)
 
   val get_bot : 'a pomap -> Ix.Set.t
-  (** [get_bot pm] @return the set of node indices of nodes that are
-      lower than any other node in [pm] but themselves. *)
+  (** [get_bot pm]
 
-  (** {6 Operations over equivalences of data elements} *)
+      @return
+        the set of node indices of nodes that are lower than any other node in
+        [pm] but themselves. *)
+
+  (** {1 Operations over equivalences of data elements} *)
 
   val remove_eq_prds : ('a -> 'a -> bool) -> 'a pomap -> 'a pomap
-  (** [remove_eq_prds eq pm] @return a map containing the same
-      bindings as [pm] except for nodes whose non-empty predecessors
-      all have the same data element as identified by [eq]. *)
+  (** [remove_eq_prds eq pm]
+
+      @return
+        a map containing the same bindings as [pm] except for nodes whose
+        non-empty predecessors all have the same data element as identified by
+        [eq]. *)
 
   val fold_eq_classes :
     ('a -> 'a -> bool) -> ('a -> 'a pomap -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -312,9 +377,11 @@ module type POMAP = sig
       non-conflicting elements are assigned to upper or lower classes! *)
 
   val preorder_eq_classes : ('a -> 'a -> bool) -> 'a pomap -> 'a pomap list
-  (** [preorder_eq_classes eq pm] @return a preordered list of
-      equivalence classes, the latter being defined as in
-      [fold_split_eq_classes]. *)
+  (** [preorder_eq_classes eq pm]
+
+      @return
+        a preordered list of equivalence classes, the latter being defined as in
+        [fold_split_eq_classes]. *)
 
   val topo_fold_reduced :
     ('a -> 'a -> bool) -> ('a node -> 'b -> 'b) -> 'a pomap -> 'b -> 'b
@@ -324,7 +391,7 @@ module type POMAP = sig
       lower elements if there are no intermediate elements that violate this
       equivalence. *)
 
-  (** {6 Unsafe operations - USE WITH CAUTION!} *)
+  (** {1 Unsafe operations - USE WITH CAUTION!} *)
 
   val unsafe_update : 'a pomap -> Ix.t -> 'a node -> 'a pomap
   (** [unsafe_update pm ix node] updates the node associated with node index
