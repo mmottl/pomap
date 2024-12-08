@@ -29,8 +29,10 @@ struct
   let compare (x1, x2) (y1, y2) =
     if x1 < y1 then if x2 <= y2 then Lower else Unknown
     else if x1 > y1 then if x2 < y2 then Unknown else Greater
-    else if (* x1 = y1 *)
-            x2 < y2 then Lower
+    else if
+      (* x1 = y1 *)
+      x2 < y2
+    then Lower
     else if x2 > y2 then Greater
     else Equal
 

@@ -145,7 +145,8 @@ module type STORE = sig
       associated with the elements. *)
 
   val to_list : 'a t -> (Ix.t * 'a) list
-  (** [to_list s] converts [s] to an association list of indices and elements. *)
+  (** [to_list s] converts [s] to an association list of indices and elements.
+  *)
 
   val choose : 'a t -> Ix.t * 'a
   (** [choose s]
@@ -182,5 +183,6 @@ module type STORE = sig
   (** [get_ix_map s]
 
       @return
-        a map of all indices mapped to their respective elements in store [s]. *)
+        a map of all indices mapped to their respective elements in store [s].
+  *)
 end

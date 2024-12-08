@@ -131,10 +131,9 @@ module type POMAP = sig
   val add_find : key -> 'a -> 'a pomap -> 'a add_find_result
   (** [add_find k el pm] similar to [add], but if the binding did already exist,
       then [Found (ix, node)] will be returned to indicate the index and node
-      under which key [k] is bound. Otherwise [Added
-      (new_ix, new_pm)]
-      will be returned to indicate that [k] was bound under new index [new_ix]
-      in the partially ordered map [new_pm]. *)
+      under which key [k] is bound. Otherwise [Added (new_ix, new_pm)] will be
+      returned to indicate that [k] was bound under new index [new_ix] in the
+      partially ordered map [new_pm]. *)
 
   val add_fun : key -> 'a -> ('a -> 'a) -> 'a pomap -> 'a pomap
   (** [add_fun k el f pm] similar to [add], but if the binding already existed,
@@ -272,7 +271,8 @@ module type POMAP = sig
   (** {1 Set-like map-operations} *)
 
   val union : 'a pomap -> 'a pomap -> 'a pomap
-  (** [union pm1 pm2] merges [pm1] and [pm2], preserving the bindings of [pm1]. *)
+  (** [union pm1 pm2] merges [pm1] and [pm2], preserving the bindings of [pm1].
+  *)
 
   val inter : 'a pomap -> 'a pomap -> 'a pomap
   (** [inter pm1 pm2] intersects [pm1] and [pm2], preserving the bindings of
