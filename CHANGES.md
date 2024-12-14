@@ -1,3 +1,5 @@
+# Changelog
+
 ## 4.1.2 (2024-12-01)
 
 - Improved documentation
